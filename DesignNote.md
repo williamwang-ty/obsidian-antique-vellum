@@ -86,7 +86,7 @@ This design system is not a simple accumulation of colors, but a deliberate cali
 
 **系统定位**：为高强度文字工作者、架构师与研究员打造的沉浸式个人知识库视觉系统。
 
-**核心理念**：将物理世界的**"岁月纸媒质感"**与数字世界的**"高维信息架构"**结合，追求低认知负荷与舒适的视力保护。
+**核心理念**：将物理世界的 **"岁月纸媒质感"** 与数字世界的 **"高维信息架构"** 结合，追求低认知负荷与舒适的视力保护。
 
 ## 1. 核心视觉哲学
 
@@ -121,7 +121,7 @@ This design system is not a simple accumulation of colors, but a deliberate cali
 
 ## 3. 信息色彩架构：水彩宝石色系
 
-在侧边栏文件夹与标题的"彩虹系统"中，用自然界的**"宝石色系（Jewel Tones）"**替换高纯度的原色。
+在侧边栏文件夹与标题的"彩虹系统"中，用自然界的 **"宝石色系（Jewel Tones）"** 替换高纯度的原色。
 
 - **色彩映射表**：
 
