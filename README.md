@@ -4,8 +4,7 @@
 >
 > 一套护眼的 Obsidian 主题预设 —— 暖调羊皮纸底色、水彩风强调色、舒适的阅读体验。
 
-<!-- TODO: Add screenshot -->
-<!-- ![Antique Vellum Preview](screenshots/hero.png) -->
+![Antique Vellum Preview](antique-vellum.png)
 
 ---
 
