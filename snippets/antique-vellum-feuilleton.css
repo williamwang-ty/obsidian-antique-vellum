@@ -1,0 +1,178 @@
+/*
+ * ============================================================
+ *  Antique Vellum — Option 3: Feuilleton 杂志名利场
+ *  Typography Metrics & Font Isolation Layer
+ * ============================================================
+ */
+
+
+
+/* ---- Font Embedding: Use system-installed HYCuFangSongJ and isolate CJK via unicode-range ---- */
+@font-face {
+    font-family: "HYCuFangSongJCJK";
+    src: local("HYCuFangSongJ"),
+         local("HYd4gj"),
+         local("华仪粗仿宋简");
+    unicode-range: U+4E00-9FFF, U+3400-4DBF, U+20000-2A6DF, U+F900-FAFF, U+3000-303F, U+FF00-FFEF, U+2E80-2EFF, U+FE30-FE4F;
+}
+
+/* ---- Typography Metrics & Global Font Variables ---- */
+body {
+    --font-text-theme: "Georgia", "HYCuFangSongJCJK", "Noto Serif SC", "Songti SC", "Source Han Serif SC", serif !important;
+    --font-text: "Georgia", "HYCuFangSongJCJK", "Noto Serif SC", "Songti SC", "Source Han Serif SC", serif !important;
+    --font-editor: "Georgia", "HYCuFangSongJCJK", "Noto Serif SC", "Songti SC", "Source Han Serif SC", serif !important;
+
+    --line-height-normal: 1.75;
+    --editor-line-height: 1.75;
+
+    --av-article-panel-bg: var(--code-background);
+    --av-article-panel-border: rgba(51, 45, 41, 0.04);
+    --av-article-panel-shadow: 0 6px 16px rgba(51, 45, 41, 0.035);
+    --av-article-panel-radius: 10px;
+    --av-code-panel-bg: rgba(51, 45, 41, 0.07);
+    --av-text-divider: rgba(51, 45, 41, 0.15);
+    --av-text-divider-soft: transparent;
+    --av-table-line: rgba(51, 45, 41, 0.17);
+    --av-table-line-strong: rgba(51, 45, 41, 0.24);
+    --av-table-header-bg: rgba(255, 255, 255, 0.11);
+    --av-table-row-bg: rgba(255, 255, 255, 0.03);
+}
+
+.workspace-leaf-content[data-type="markdown"],
+.workspace-leaf.mod-active .workspace-leaf-content[data-type="markdown"] .view-content,
+.markdown-preview-view,
+.markdown-source-view.mod-cm6 {
+    background: var(--av-article-panel-bg) !important;
+    border-radius: var(--av-article-panel-radius);
+    box-shadow: var(--av-article-panel-shadow);
+}
+
+.workspace-leaf.mod-active .workspace-leaf-content[data-type="markdown"] .view-content {
+    border: 1px solid var(--av-article-panel-border);
+    padding: 0.6rem 1rem 1rem !important;
+}
+
+.markdown-source-view.mod-cm6 .cm-content,
+.markdown-source-view.mod-cm6 .cm-line {
+    font-family: var(--font-editor) !important;
+}
+
+.markdown-source-view.mod-cm6 .cm-scroller,
+.markdown-preview-view,
+body .markdown-rendered p,
+body .markdown-rendered li,
+body .markdown-rendered table {
+    font-size: calc(var(--font-text-size, 16px) * 1.18) !important;
+    letter-spacing: 0.012em !important;
+    font-weight: 400 !important;
+    -webkit-font-smoothing: antialiased !important;
+}
+
+/* Reset stroke for elements that shouldn't have ink bleed */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.HyperMD-header,
+.cm-header,
+.inline-title,
+strong,
+.cm-strong,
+code,
+.cm-inline-code,
+pre {
+    -webkit-text-stroke: 0px !important;
+}
+
+/* Enforce monospace font for all code blocks and tokens to prevent them from inheriting the main serif typography. */
+.HyperMD-codeblock,
+.HyperMD-codeblock *,
+.markdown-rendered code,
+.markdown-rendered code *,
+.markdown-rendered pre,
+.markdown-rendered pre * {
+    font-family: "IBM Plex Mono", var(--font-monospace), monospace !important;
+}
+
+/* Keep code blocks visually deeper than the article panel without changing Feuilleton-specific code metrics. */
+.markdown-source-view.mod-cm6 .HyperMD-codeblock,
+.markdown-rendered pre {
+    background: var(--av-code-panel-bg) !important;
+}
+
+.markdown-rendered pre code {
+    background: transparent !important;
+}
+
+/* Restore article text dividers without affecting table styling */
+.markdown-rendered hr,
+.markdown-source-view.mod-cm6 hr {
+    border: none !important;
+    border-top: 1px solid var(--av-text-divider) !important;
+    box-shadow: none !important;
+    opacity: 1 !important;
+}
+
+.anp-h1-divider .markdown-rendered h1,
+.anp-h1-divider .HyperMD-header-1,
+.anp-h2-divider .markdown-rendered h2,
+.anp-h2-divider .HyperMD-header-2,
+.anp-h3-divider .markdown-rendered h3,
+.anp-h3-divider .HyperMD-header-3,
+.anp-h4-divider .markdown-rendered h4,
+.anp-h4-divider .HyperMD-header-4,
+.anp-h5-divider .markdown-rendered h5,
+.anp-h5-divider .HyperMD-header-5,
+.anp-h6-divider .markdown-rendered h6,
+.anp-h6-divider .HyperMD-header-6 {
+    border-bottom-color: var(--av-text-divider) !important;
+    box-shadow: none !important;
+}
+
+/* Slightly strengthen table boundaries without over-darkening them */
+.markdown-rendered table,
+.markdown-source-view.mod-cm6 .cm-table-widget table {
+    border-collapse: collapse !important;
+    border: 1px solid var(--av-table-line-strong) !important;
+}
+
+.markdown-rendered th,
+.markdown-source-view.mod-cm6 .cm-table-widget th {
+    background: var(--av-table-header-bg) !important;
+    border: 1px solid var(--av-table-line-strong) !important;
+}
+
+.markdown-rendered td,
+.markdown-source-view.mod-cm6 .cm-table-widget td {
+    background: var(--av-table-row-bg) !important;
+    border: 1px solid var(--av-table-line) !important;
+}
+
+.markdown-rendered tr + tr td,
+.markdown-source-view.mod-cm6 .cm-table-widget tr + tr td {
+    border-top: 1px solid var(--av-table-line) !important;
+}
+
+/* Display Font setup for Inline Title only */
+body .workspace-leaf .markdown-preview-view .inline-title,
+body .workspace-leaf .markdown-preview-view .inline-title *,
+body .workspace-leaf .markdown-rendered .inline-title,
+body .workspace-leaf .markdown-rendered .inline-title *,
+body .workspace-leaf .markdown-source-view .inline-title,
+.inline-title {
+    font-family: "Didot", "Bodoni MT", ui-serif, serif !important;
+    text-transform: uppercase !important;
+    font-weight: bold !important;
+}
+
+/* Make Inline Title distinctly larger than H1 to emphasize the Didot magazine feel.
+   Applied ONLY to the container to prevent exponential scaling on child elements. */
+body .workspace-leaf .markdown-preview-view .inline-title,
+body .workspace-leaf .markdown-rendered .inline-title,
+body .workspace-leaf .markdown-source-view .inline-title,
+.inline-title {
+    font-size: calc(var(--h1-size, 2em) * 1.3) !important;
+    margin-bottom: 0.5em;
+}

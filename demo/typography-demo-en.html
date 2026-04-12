@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antique Vellum - English Note Specimens</title>
+
+    <style>
+        :root {
+            --bg-base: #eadfd3;
+            --bg-mantle: #e2d4c4;
+            --bg-surface: #e4d7c8;
+            --bg-surface-strong: #ddccb8;
+            --bg-crust: #dac9b7;
+            --text-graphite: #332d29;
+            --accent-prussian: #0c6b8a;
+            --jewel-red: #c13a4b;
+
+            --page-shell: rgba(255, 255, 255, 0.16);
+            --page-shell-strong: rgba(255, 255, 255, 0.24);
+            --shell-border: rgba(51, 45, 41, 0.08);
+            --shell-border-strong: rgba(51, 45, 41, 0.12);
+            --shell-shadow: 0 24px 60px rgba(51, 45, 41, 0.07);
+            --shell-shadow-soft: 0 14px 30px rgba(51, 45, 41, 0.045);
+
+            --article-panel-bg: #e4d7c8;
+            --article-panel-border: rgba(51, 45, 41, 0.05);
+            --article-panel-shadow: 0 6px 16px rgba(51, 45, 41, 0.035);
+            --article-panel-radius: 18px;
+            --workspace-radius: 28px;
+            --workspace-border: rgba(51, 45, 41, 0.04);
+            --code-panel-bg: rgba(51, 45, 41, 0.07);
+            --text-divider: rgba(51, 45, 41, 0.15);
+            --table-line: rgba(51, 45, 41, 0.17);
+            --table-line-strong: rgba(51, 45, 41, 0.24);
+            --table-header-bg: rgba(255, 255, 255, 0.11);
+            --table-row-bg: rgba(255, 255, 255, 0.03);
+
+            --font-shell-display: "Iowan Old Style", "Didot", "Bodoni 72", "Palatino Linotype", serif;
+            --font-shell-serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+            --font-shell-sans: "Avenir Next", "Segoe UI", sans-serif;
+            --font-shell-mono: "IBM Plex Mono", "SFMono-Regular", monospace;
+
+            --font-option-1: "Athelas", "Palatino", "Palatino Linotype", serif;
+            --font-option-2: "Charter", "Bitstream Charter", "Palatino", "Palatino Linotype", serif;
+            --font-option-3-body: "Georgia", "HYCuFangSongJ", "HYd4gj", "Noto Serif SC", "Songti SC", "Source Han Serif SC", serif;
+            --font-option-3-display: "Didot", "Bodoni MT", ui-serif, serif;
+            --font-default: var(--font-shell-sans);
+            --code-ibm: "IBM Plex Mono", monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            color-scheme: light;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            color: var(--text-graphite);
+            font-family: var(--font-default);
+            background:
+                radial-gradient(circle at top left, rgba(255, 255, 255, 0.36), transparent 28%),
+                radial-gradient(circle at 88% 12%, rgba(193, 58, 75, 0.07), transparent 18%),
+                radial-gradient(circle at 10% 82%, rgba(12, 107, 138, 0.06), transparent 18%),
+                linear-gradient(180deg, var(--bg-base) 0%, var(--bg-mantle) 100%);
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background: radial-gradient(circle at center, transparent 62%, rgba(51, 45, 41, 0.06) 120%);
+            z-index: -1;
+        }
+
+        a {
+            color: inherit;
+            text-decoration-color: rgba(12, 107, 138, 0.36);
+            text-underline-offset: 0.16em;
+        }
+
+        .page {
+            width: min(1500px, calc(100vw - 40px));
+            margin: 0 auto;
+            padding: 34px 0 84px;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: minmax(0, 1.4fr) minmax(320px, 0.86fr);
+            gap: 28px;
+            padding: clamp(30px, 4vw, 46px);
+            border: 1px solid var(--shell-border-strong);
+            border-radius: 36px;
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.1)),
+                linear-gradient(180deg, rgba(228, 215, 200, 0.84), rgba(218, 201, 183, 0.72));
+            box-shadow: var(--shell-shadow);
+        }
+
+        .hero-label {
+            margin: 0 0 1rem;
+            color: rgba(51, 45, 41, 0.58);
+            font-family: var(--font-shell-mono);
+            font-size: 0.74rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            margin: 0;
+            max-width: 9ch;
+            font-family: var(--font-shell-display);
+            font-size: clamp(4.2rem, 8vw, 6.6rem);
+            line-height: 0.92;
+            letter-spacing: -0.05em;
+        }
+
+        .hero p {
+            max-width: 58ch;
+            margin: 1.35rem 0 0;
+            font-family: var(--font-shell-serif);
+            font-size: 1.14rem;
+            line-height: 1.84;
+            color: rgba(51, 45, 41, 0.84);
+        }
+
+        .hero-side {
+            display: grid;
+            gap: 0;
+            border: 1px solid rgba(51, 45, 41, 0.08);
+            border-radius: 28px;
+            background: rgba(255, 255, 255, 0.16);
+            overflow: hidden;
+        }
+
+        .hero-panel {
+            padding: 22px 24px;
+        }
+
+        .hero-panel + .hero-panel {
+            border-top: 1px solid rgba(51, 45, 41, 0.08);
+        }
+
+        .panel-label {
+            margin: 0 0 0.7rem;
+            color: rgba(51, 45, 41, 0.56);
+            font-family: var(--font-shell-mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .hero-side h2 {
+            margin: 0 0 0.8rem;
+            font-family: var(--font-shell-serif);
+            font-size: 1.3rem;
+            line-height: 1.15;
+        }
+
+        .calibration-list {
+            display: grid;
+            gap: 0.78rem;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .calibration-list li {
+            position: relative;
+            padding-left: 1rem;
+            font-size: 0.96rem;
+            line-height: 1.68;
+            color: rgba(51, 45, 41, 0.8);
+        }
+
+        .calibration-list li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.72em;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--accent-prussian);
+        }
+
+        .hero-index {
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .hero-index a {
+            display: grid;
+            gap: 0.16rem;
+            padding: 0.9rem 0.95rem;
+            border: 1px solid rgba(51, 45, 41, 0.06);
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.14);
+            text-decoration: none;
+        }
+
+        .index-label {
+            color: rgba(51, 45, 41, 0.5);
+            font-family: var(--font-shell-mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .index-title {
+            font-family: var(--font-shell-serif);
+            font-size: 1.04rem;
+            line-height: 1.2;
+        }
+
+        .sections {
+            display: grid;
+            gap: 70px;
+            margin-top: 58px;
+        }
+
+        .specimen {
+            position: relative;
+            padding-top: 18px;
+        }
+
+        .specimen::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: min(180px, 24vw);
+            height: 2px;
+            background: linear-gradient(90deg, var(--option-accent), rgba(51, 45, 41, 0.12));
+        }
+
+        .specimen-head {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(380px, 560px);
+            gap: 28px;
+            align-items: end;
+            margin-bottom: 22px;
+        }
+
+        .specimen-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            padding: 0.5rem 0.9rem;
+            border-radius: 999px;
+            background: var(--option-soft);
+            color: var(--option-accent);
+            font-family: var(--font-shell-mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .specimen-head h2 {
+            margin: 1rem 0 0.6rem;
+            font-family: var(--font-shell-display);
+            font-size: clamp(3rem, 4.6vw, 4.8rem);
+            line-height: 0.94;
+            letter-spacing: -0.05em;
+        }
+
+        .specimen-head p {
+            max-width: 44em;
+            margin: 0;
+            font-family: var(--font-shell-serif);
+            font-size: 1.08rem;
+            line-height: 1.82;
+            color: rgba(51, 45, 41, 0.84);
+        }
+
+        .metric-row {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .metric {
+            min-height: 138px;
+            padding: 16px 16px 18px;
+            border: 1px solid rgba(51, 45, 41, 0.07);
+            border-radius: 22px;
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.08)),
+                rgba(228, 215, 200, 0.56);
+            box-shadow: var(--shell-shadow-soft);
+        }
+
+        .metric-label {
+            color: rgba(51, 45, 41, 0.5);
+            font-family: var(--font-shell-mono);
+            font-size: 0.68rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .metric-value {
+            margin-top: 0.62rem;
+            font-family: var(--font-shell-serif);
+            font-size: 1rem;
+            line-height: 1.6;
+            color: rgba(51, 45, 41, 0.84);
+        }
+
+        .stage-shell {
+            padding: 18px;
+            border: 1px solid var(--shell-border-strong);
+            border-radius: 36px;
+            background:
+                radial-gradient(circle at top right, var(--option-wash), transparent 28%),
+                linear-gradient(180deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.08)),
+                linear-gradient(180deg, rgba(226, 212, 196, 0.88), rgba(218, 201, 183, 0.78));
+            box-shadow: var(--shell-shadow);
+        }
+
+        .stage-topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            margin-bottom: 14px;
+            padding: 4px 6px 0;
+        }
+
+        .stage-label {
+            color: rgba(51, 45, 41, 0.52);
+            font-family: var(--font-shell-mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .stage-flags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            gap: 8px;
+        }
+
+        .stage-flag {
+            padding: 0.46rem 0.74rem;
+            border: 1px solid rgba(51, 45, 41, 0.07);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.18);
+            color: rgba(51, 45, 41, 0.72);
+            font-size: 0.78rem;
+            line-height: 1;
+        }
+
+        .workspace {
+            padding: clamp(22px, 4vw, 34px);
+            border: 1px solid var(--workspace-border);
+            border-radius: var(--workspace-radius);
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.03)),
+                linear-gradient(180deg, var(--bg-mantle), var(--bg-surface));
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.18),
+                0 14px 28px rgba(51, 45, 41, 0.035);
+        }
+
+        .note {
+            max-width: 940px;
+            margin: 0 auto;
+            padding: clamp(34px, 5vw, 54px) clamp(28px, 5vw, 48px) clamp(42px, 6vw, 62px);
+            background: var(--article-panel-bg);
+            border: 1px solid var(--article-panel-border);
+            border-radius: var(--article-panel-radius);
+            box-shadow: var(--article-panel-shadow);
+        }
+
+        .note-path {
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: rgba(51, 45, 41, 0.56);
+            letter-spacing: 0.01em;
+        }
+
+        .note h1 {
+            margin: 0 0 1.45rem;
+            max-width: 13ch;
+            color: var(--text-graphite);
+        }
+
+        .properties {
+            display: grid;
+            gap: 0.8rem;
+            margin: 0 0 2.4rem;
+            padding: 0.2rem 0 0.4rem;
+        }
+
+        .property-row {
+            display: grid;
+            grid-template-columns: 110px minmax(0, 1fr);
+            gap: 0.8rem;
+            align-items: start;
+        }
+
+        .property-label {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: rgba(51, 45, 41, 0.58);
+            text-transform: lowercase;
+            letter-spacing: 0.01em;
+        }
+
+        .property-value {
+            min-width: 0;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+        }
+
+        .chip {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.24rem 0.68rem;
+            border-radius: 999px;
+            background: rgba(12, 107, 138, 0.12);
+            color: var(--accent-prussian);
+            white-space: nowrap;
+        }
+
+        .note h2 {
+            margin: 2.5rem 0 0.9rem;
+            font-size: clamp(1.55rem, 2vw, 1.9rem);
+            line-height: 1.12;
+            color: var(--jewel-red);
+        }
+
+        .note p,
+        .note li,
+        .note th,
+        .note td {
+            margin: 0 0 1rem;
+            text-align: justify;
+        }
+
+        .note ul {
+            margin: 0 0 1.45rem;
+            padding-left: 1.4rem;
+        }
+
+        .note li::marker {
+            color: var(--accent-prussian);
+        }
+
+        .note hr {
+            margin: 1.75rem 0;
+            border: none;
+            border-top: 1px solid var(--text-divider);
+        }
+
+        strong {
+            color: var(--jewel-red);
+            font-weight: 700;
+        }
+
+        em {
+            font-style: italic;
+            opacity: 0.96;
+        }
+
+        code,
+        pre,
+        pre code {
+            font-family: var(--code-ibm);
+        }
+
+        code {
+            padding: 0.2em 0.42em;
+            border-radius: 4px;
+            background: rgba(51, 45, 41, 0.05);
+            font-size: 0.9em;
+        }
+
+        pre {
+            margin: 1rem 0 1.1rem;
+            padding: 1rem 1.05rem;
+            overflow-x: auto;
+            border: 1px solid rgba(51, 45, 41, 0.05);
+            border-radius: 8px;
+            background: var(--code-panel-bg);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
+        }
+
+        pre code {
+            padding: 0;
+            background: transparent;
+            font-size: inherit;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 1rem;
+            border-collapse: collapse;
+            border: 1px solid var(--table-line-strong);
+        }
+
+        th,
+        td {
+            padding: 0.62rem 0.72rem;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background: var(--table-header-bg);
+            border: 1px solid var(--table-line-strong);
+            font-weight: 700;
+        }
+
+        td {
+            background: var(--table-row-bg);
+            border: 1px solid var(--table-line);
+        }
+
+        .theme-1 {
+            --option-accent: #0c6b8a;
+            --option-soft: rgba(12, 107, 138, 0.12);
+            --option-wash: rgba(12, 107, 138, 0.12);
+        }
+
+        .theme-2 {
+            --option-accent: #332d29;
+            --option-soft: rgba(51, 45, 41, 0.1);
+            --option-wash: rgba(51, 45, 41, 0.08);
+        }
+
+        .theme-3 {
+            --option-accent: #c13a4b;
+            --option-soft: rgba(193, 58, 75, 0.12);
+            --option-wash: rgba(193, 58, 75, 0.09);
+        }
+
+        .theme-1 .note {
+            font-family: var(--font-option-1);
+        }
+
+        .theme-1 .note p,
+        .theme-1 .note li,
+        .theme-1 .note th,
+        .theme-1 .note td {
+            font-size: 1.1rem;
+            line-height: 1.65;
+            letter-spacing: 0.02em;
+            word-spacing: 0.05em;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .theme-1 .note h1 {
+            font-family: "Hiragino Sans GB W3", "Hiragino Sans GB", "HiraginoSansGB-W3", "Hiragino Sans GB W6", "HiraginoSansGB-W6", var(--font-option-1);
+            font-size: clamp(2.88rem, 4.3vw, 4.05rem);
+            line-height: 1.27;
+            letter-spacing: 0.012em;
+        }
+
+        .theme-1 pre {
+            font-size: 0.92rem;
+            line-height: 1.3;
+            letter-spacing: -0.01em;
+            word-spacing: 0;
+        }
+
+        .theme-2 .note {
+            font-family: var(--font-option-2);
+        }
+
+        .theme-2 .note p,
+        .theme-2 .note li,
+        .theme-2 .note th,
+        .theme-2 .note td {
+            line-height: 1.6;
+            letter-spacing: 0.01em;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .theme-2 .note h1,
+        .theme-2 .note h2 {
+            font-family: var(--font-option-2);
+        }
+
+        .theme-2 .note h1 {
+            font-size: clamp(3.1rem, 4.7vw, 4.4rem);
+            line-height: 1.14;
+        }
+
+        .theme-3 .note {
+            font-family: var(--font-option-3-body);
+        }
+
+        .theme-3 .note p,
+        .theme-3 .note li,
+        .theme-3 .note th,
+        .theme-3 .note td {
+            font-size: 1.18rem;
+            line-height: 1.75;
+            letter-spacing: 0.012em;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .theme-3 .note h1 {
+            font-family: var(--font-option-3-display);
+            font-size: clamp(3.2rem, 5vw, 4.8rem);
+            line-height: 1.05;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            max-width: 11ch;
+        }
+
+        .theme-3 .note h2 {
+            font-family: var(--font-option-3-body);
+            text-transform: none;
+        }
+
+        @media (max-width: 1120px) {
+            .hero,
+            .specimen-head {
+                grid-template-columns: 1fr;
+            }
+
+            .metric-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 860px) {
+            .page {
+                width: min(100vw - 24px, 1500px);
+                padding: 16px 0 48px;
+            }
+
+            .hero {
+                padding: 24px 20px;
+                border-radius: 26px;
+            }
+
+            .hero h1 {
+                max-width: none;
+                font-size: clamp(3rem, 14vw, 4.5rem);
+            }
+
+            .stage-topbar {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .stage-shell {
+                padding: 12px;
+                border-radius: 24px;
+            }
+
+            .workspace {
+                padding: 14px;
+                border-radius: 18px;
+            }
+
+            .note {
+                padding: 26px 20px 34px;
+                border-radius: 14px;
+            }
+
+            .property-row {
+                grid-template-columns: 1fr;
+                gap: 0.2rem;
+            }
+
+            .note h1 {
+                max-width: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <header class="hero">
+            <div>
+                <p class="hero-label">Antique Vellum / Specimen Journal</p>
+                <h1>Obsidian Reading Surface Atlas</h1>
+                <p>This demo is now treated as a specimen book, not a dashboard. The presentation layer is intentionally more refined, but the inner note remains the calibrated object: real note width, visible properties, title proportion, single-depth code surface, and restrained table contrast are kept aligned to the live Obsidian pane.</p>
+            </div>
+
+            <aside class="hero-side">
+                <section class="hero-panel">
+                    <p class="panel-label">Calibration</p>
+                    <h2>Designed shell, faithful specimen</h2>
+                    <ul class="calibration-list">
+                        <li>Judge fidelity by the note inside the stage, not by the surrounding editorial shell.</li>
+                        <li>Each option keeps the same vellum material grammar, but shifts its typography rhythm and title behavior.</li>
+                        <li>The outer page is allowed to be elegant, but it should never squeeze, crop, or overpower the specimen.</li>
+                    </ul>
+                </section>
+
+                <nav class="hero-panel hero-index" aria-label="Atlas index">
+                    <p class="panel-label">Contents</p>
+                    <a href="#scriptorium">
+                        <span class="index-label">Option I</span>
+                        <span class="index-title">Scriptorium</span>
+                    </a>
+                    <a href="#codex">
+                        <span class="index-label">Option II</span>
+                        <span class="index-title">Codex</span>
+                    </a>
+                    <a href="#feuilleton">
+                        <span class="index-label">Option III</span>
+                        <span class="index-title">Feuilleton</span>
+                    </a>
+                </nav>
+            </aside>
+        </header>
+
+        <main class="sections">
+            <section id="scriptorium" class="specimen theme-1">
+                <div class="specimen-head">
+                    <div>
+                        <div class="specimen-kicker">Option I / Scriptorium</div>
+                        <h2>Scriptorium</h2>
+                        <p>The manuscript option: warmer, airier, and more breathing-heavy, with a clearer tactile separation between lyrical prose and compact code.</p>
+                    </div>
+
+                    <div class="metric-row">
+                        <div class="metric">
+                            <div class="metric-label">Rhythm</div>
+                            <div class="metric-value">1.1x body scale, 1.65 leading, wider spacing, softer manuscript drift.</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Keep True</div>
+                            <div class="metric-value">Real note width, visible properties, softened graphite, and code that sinks one layer deeper.</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Presentation</div>
+                            <div class="metric-value">The shell should feel like a folio mount, not a second interface competing with the text.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stage-shell">
+                    <div class="stage-topbar">
+                        <div class="stage-label">Obsidian faithful specimen</div>
+                        <div class="stage-flags">
+                            <span class="stage-flag">centered note width</span>
+                            <span class="stage-flag">properties visible</span>
+                            <span class="stage-flag">single-depth code</span>
+                        </div>
+                    </div>
+
+                    <div class="workspace">
+                        <article class="note">
+                            <div class="note-path">01.Input / 01.Articles / Scriptorium specimen</div>
+                            <h1>The Garden of Forking Paths</h1>
+
+                            <section class="properties" aria-label="Note properties">
+                                <div class="property-row">
+                                    <div class="property-label">tags</div>
+                                    <div class="property-value chips">
+                                        <span class="chip">fiction/borges</span>
+                                        <span class="chip">reading-surface</span>
+                                    </div>
+                                </div>
+                                <div class="property-row">
+                                    <div class="property-label">source</div>
+                                    <div class="property-value"><a href="#">archive://vellum/specimens/scriptorium</a></div>
+                                </div>
+                                <div class="property-row">
+                                    <div class="property-label">created</div>
+                                    <div class="property-value">April 12, 2026</div>
+                                </div>
+                            </section>
+
+                            <h2>Summary</h2>
+                            <ul>
+                                <li>The article body is enlarged to 1.1x with 1.65 line-height and wider spacing.</li>
+                                <li><strong>Athelas</strong> carries the literary tone in the body, while the article title now switches to <strong>Hiragino Sans GB W3</strong>.</li>
+                                <li>The quieter article panel matters here because the type needs room to breathe without turning sentimental.</li>
+                            </ul>
+
+                            <h2>Reading rhythm</h2>
+                            <p>He believed in an infinite series of times, in a growing, dizzying web of divergent, convergent, and parallel durations. In this version of the reading surface, the body text is slightly enlarged, the spacing is airy, and the prose keeps a manuscript-like softness even when discussing <code>branching_time</code>.</p>
+                            <p>Nothing dramatic has been added around the text. The fidelity comes from proportion: a centered note measure, softened graphite, a title that now switches to Hiragino Sans GB W3, and a code block that sits one layer deeper instead of becoming a second card inside the article.</p>
+
+                            <hr>
+
+                            <pre><code>const destiny = (archive) =&gt; {
+  return archive.fork().map((path) =&gt; path.annotate("vellum"));
+};</code></pre>
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Trait</th>
+                                        <th>Current behavior</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Body texture</td>
+                                        <td>1.1x text scale, 1.65 line-height, airy word spacing, softer manuscript drift.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Code surface</td>
+                                        <td>Single deeper panel with compact, IDE-like density instead of a decorative box.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section id="codex" class="specimen theme-2">
+                <div class="specimen-head">
+                    <div>
+                        <div class="specimen-kicker">Option II / Codex</div>
+                        <h2>Codex</h2>
+                        <p>The documentary option: quieter, more rectangular, and more stable under long-form research, references, and archival comparison.</p>
+                    </div>
+
+                    <div class="metric-row">
+                        <div class="metric">
+                            <div class="metric-label">Rhythm</div>
+                            <div class="metric-value">Base text scale, 1.6 leading, restrained letter spacing, denser block shape.</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Keep True</div>
+                            <div class="metric-value">Measured title hierarchy, neutral dividers, and tables that stay visible without hardening into a grid.</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Presentation</div>
+                            <div class="metric-value">The shell can feel archival, but the note itself must remain calm and documentary rather than bureaucratic.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stage-shell">
+                    <div class="stage-topbar">
+                        <div class="stage-label">Obsidian faithful specimen</div>
+                        <div class="stage-flags">
+                            <span class="stage-flag">base text scale</span>
+                            <span class="stage-flag">quiet dividers</span>
+                            <span class="stage-flag">legible tables</span>
+                        </div>
+                    </div>
+
+                    <div class="workspace">
+                        <article class="note">
+                            <div class="note-path">01.Input / 02.Research / Codex specimen</div>
+                            <h1>Structural Analysis of Meaning</h1>
+
+                            <section class="properties" aria-label="Note properties">
+                                <div class="property-row">
+                                    <div class="property-label">tags</div>
+                                    <div class="property-value chips">
+                                        <span class="chip">research/codex</span>
+                                        <span class="chip">metadata</span>
+                                    </div>
+                                </div>
+                                <div class="property-row">
+                                    <div class="property-label">source</div>
+                                    <div class="property-value"><a href="#">archive://vellum/specimens/codex</a></div>
+                                </div>
+                                <div class="property-row">
+                                    <div class="property-label">created</div>
+                                    <div class="property-value">April 12, 2026</div>
+                                </div>
+                            </section>
+
+                            <h2>Summary</h2>
+                            <ul>
+                                <li>The body keeps the base scale, with 1.6 line-height and restrained 0.01em letter spacing.</li>
+                                <li><strong>Charter</strong> and the serif CJK fallback keep the page rational, steady, and citation-friendly.</li>
+                                <li>Tables and dividers stay visible, but the note never turns into a hard technical grid.</li>
+                            </ul>
+
+                            <h2>Theoretical framework</h2>
+                            <p>Information is not merely transmitted; it is arranged. Codex keeps the same vellum shell as the other options, but its typography is more disciplined: regular scale, restrained spacing, and a steadier block texture suited to long sequences of argument, references, and <code>indexable_structure</code>.</p>
+                            <p>The correction here is mostly about measure and hierarchy. In the old three-column demo, Codex felt too editorial because the title and body were forced into a narrow width; at note width, its authority becomes calmer and more documentary.</p>
+
+                            <hr>
+
+                            <pre><code># Analytical Query Spec
+SELECT truth FROM reality
+WHERE noise_level &lt; 0.01
+ORDER BY clarity ASC;</code></pre>
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Trait</th>
+                                        <th>Current behavior</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Body texture</td>
+                                        <td>Base text scale, 1.6 line-height, 0.01em tracking, disciplined rectangular blocks.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Structural cues</td>
+                                        <td>Quiet dividers and legible tables without adding extra accent rules or ornament.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section id="feuilleton" class="specimen theme-3">
+                <div class="specimen-head">
+                    <div>
+                        <div class="specimen-kicker">Option III / Feuilleton</div>
+                        <h2>Feuilleton</h2>
+                        <p>The editorial option: display drama at the top, longer cadence underneath, and a colder, more poised sense of cultural distance.</p>
+                    </div>
+
+                    <div class="metric-row">
+                        <div class="metric">
+                            <div class="metric-label">Rhythm</div>
+                            <div class="metric-value">1.18x body scale, 1.75 leading, and a lighter tracking profile so Zhuque reads more like fangsong than generic Song.</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Keep True</div>
+                            <div class="metric-value">Large display title, long article measure, and restraint in everything below the masthead.</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Presentation</div>
+                            <div class="metric-value">The shell may feel more luxurious here, but elegance still has to come from proportion rather than effects.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stage-shell">
+                    <div class="stage-topbar">
+                        <div class="stage-label">Obsidian faithful specimen</div>
+                        <div class="stage-flags">
+                            <span class="stage-flag">display title</span>
+                            <span class="stage-flag">longer leading</span>
+                            <span class="stage-flag">editorial restraint</span>
+                        </div>
+                    </div>
+
+                    <div class="workspace">
+                        <article class="note">
+                            <div class="note-path">01.Input / 03.Columns / Feuilleton specimen</div>
+                            <h1>The Detached Observer</h1>
+
+                            <section class="properties" aria-label="Note properties">
+                                <div class="property-row">
+                                    <div class="property-label">tags</div>
+                                    <div class="property-value chips">
+                                        <span class="chip">editorial/voice</span>
+                                        <span class="chip">longform</span>
+                                    </div>
+                                </div>
+                                <div class="property-row">
+                                    <div class="property-label">source</div>
+                                    <div class="property-value"><a href="#">archive://vellum/specimens/feuilleton</a></div>
+                                </div>
+                                <div class="property-row">
+                                    <div class="property-label">created</div>
+                                    <div class="property-value">April 12, 2026</div>
+                                </div>
+                            </section>
+
+                            <h2>Summary</h2>
+                            <ul>
+                                <li>The body is enlarged to 1.18x with a longer 1.75 line-height so Zhuque can breathe without becoming hairline-thin.</li>
+                                <li>The article title stays in <strong>Didot</strong>, while the body keeps Georgia for Latin text and routes CJK to HYCuFangSongJ.</li>
+                                <li>The live look is elegant because of proportion and whitespace, not because of extra theatrical effects.</li>
+                            </ul>
+
+                            <h2>Editorial cadence</h2>
+                            <p>Feuilleton keeps the editorial contrast, but the final version now makes the CJK body more intentional. The article title still enters in <strong>Didot</strong>, while the body keeps Georgia for Latin text and routes CJK to HYCuFangSongJ, using a larger body scale and tighter tracking to let the fangsong texture show up without sacrificing comfort.</p>
+                            <p>Once the note regains a realistic width, the option reads less like a poster and more like a magazine column. That is closer to the live Obsidian effect visible in the actual pane: display drama at the top, then restraint, with the bilingual body no longer collapsing back into a generic Song texture.</p>
+
+                            <hr>
+
+                            <pre><code>const editorialAngle = (context) =&gt; {
+  return context.observe({ distance: "poised", tone: "cool" });
+};</code></pre>
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Trait</th>
+                                        <th>Current behavior</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Body texture</td>
+                                        <td>1.18x text scale, 1.75 line-height, and 0.012em tracking so the body reads with more visible fangsong texture.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Title contrast</td>
+                                        <td>Didot display title over a quieter Georgia-led article body, with no extra stage decoration.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </article>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>
