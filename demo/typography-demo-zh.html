@@ -4,9 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Antique Vellum - 中英混排笔记样张</title>
+    <title>ANTIQUE VELLUM / MASTER PROOF</title>
 
     <style>
+        /* ==========================================================================
+           Font Faces for Proxies (Core to the typography system)
+           ========================================================================== */
         @font-face {
             font-family: "QiushuiCJK";
             src: local("QiushuiShotai");
@@ -28,9 +31,9 @@
         @font-face {
             font-family: "HYCuFangSongJCJK";
             src: local("HYCuFangSongJ"),
-                 local("HYCuFangSongJ Regular"),
-                 local("HYd4gj"),
-                 local("华仪粗仿宋简");
+                local("HYCuFangSongJ Regular"),
+                local("HYd4gj"),
+                local("华仪粗仿宋简");
             unicode-range: U+4E00-9FFF, U+3400-4DBF, U+20000-2A6DF, U+F900-FAFF, U+3000-303F, U+FF00-FFEF, U+2E80-2EFF, U+FE30-FE4F;
         }
 
@@ -40,1019 +43,814 @@
             unicode-range: U+4E00-9FFF, U+3400-4DBF, U+20000-2A6DF, U+F900-FAFF, U+3000-303F, U+FF00-FFEF, U+2E80-2EFF, U+FE30-FE4F;
         }
 
+        /* ==========================================================================
+           Root Variables (Exact match to project JSONs)
+           ========================================================================== */
         :root {
-            --bg-base: #eadfd3;
-            --bg-mantle: #e2d4c4;
-            --bg-surface: #e4d7c8;
-            --bg-surface-strong: #ddccb8;
-            --bg-crust: #dac9b7;
-            --text-graphite: #332d29;
-            --accent-prussian: #0c6b8a;
-            --jewel-red: #c13a4b;
+            /* Master Proof Board */
+            --bg-master: #EFECE6;
+            --grid-color: rgba(0, 0, 0, 0.04);
+            --text-master: #111111;
+            --accent-master: #D33D29;
 
-            --page-shell: rgba(255, 255, 255, 0.16);
-            --page-shell-strong: rgba(255, 255, 255, 0.24);
-            --shell-border: rgba(51, 45, 41, 0.08);
-            --shell-border-strong: rgba(51, 45, 41, 0.12);
-            --shell-shadow: 0 24px 60px rgba(51, 45, 41, 0.07);
-            --shell-shadow-soft: 0 14px 30px rgba(51, 45, 41, 0.045);
+            /* Vellum Base Palette */
+            --vellum-bg: #EADFD3;
+            --vellum-ink: #332D29;
+            --vellum-accent: #0C6B8A;
+            --vellum-red: #C13A4B;
+            --vellum-border: rgba(51, 45, 41, 0.15);
+            --vellum-code-bg: rgba(51, 45, 41, 0.07);
 
-            --article-panel-bg: #e4d7c8;
-            --article-panel-border: rgba(51, 45, 41, 0.05);
-            --article-panel-shadow: 0 6px 16px rgba(51, 45, 41, 0.035);
-            --article-panel-radius: 18px;
-            --workspace-radius: 28px;
-            --workspace-border: rgba(51, 45, 41, 0.04);
-            --code-panel-bg: rgba(51, 45, 41, 0.07);
-            --text-divider: rgba(51, 45, 41, 0.15);
-            --table-line: rgba(51, 45, 41, 0.17);
-            --table-line-strong: rgba(51, 45, 41, 0.24);
-            --table-header-bg: rgba(255, 255, 255, 0.11);
-            --table-row-bg: rgba(255, 255, 255, 0.03);
+            /* Shell Fonts */
+            --font-mono: "IBM Plex Mono", "SFMono-Regular", "Menlo", monospace;
+            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --font-display: "Didot", "Bodoni MT", "Times New Roman", serif;
 
-            --font-shell-display: "Iowan Old Style", "Didot", "Bodoni 72", "Songti SC", "STSong", serif;
-            --font-shell-serif: "Iowan Old Style", "Palatino Linotype", "Songti SC", "STSong", serif;
-            --font-shell-sans: "Avenir Next", "PingFang SC", "Segoe UI", sans-serif;
-            --font-shell-mono: "IBM Plex Mono", "SFMono-Regular", monospace;
-
-            --font-option-1: "QiushuiCJK", "KaitiCJK", "Athelas", "Palatino", "Palatino Linotype", serif;
-            --font-option-1-title: "HiraginoSansGBTitle", "Athelas", "Palatino", "Palatino Linotype", serif;
-            --font-option-2: "Charter", "Bitstream Charter", "Palatino", "Palatino Linotype", "NotoCJK", serif;
-            --font-option-3-body: "Georgia", "HYCuFangSongJCJK", "NotoCJK", "Songti SC", "Source Han Serif SC", serif;
-            --font-option-3-display: "Didot", "Bodoni MT", ui-serif, serif;
-            --font-default: var(--font-shell-sans);
-            --code-ibm: "IBM Plex Mono", monospace;
+            /* Theme Fonts */
+            --font-opt-1: "QiushuiCJK", "KaitiCJK", "Athelas", "Palatino", "Palatino Linotype", serif;
+            --font-opt-1-title: "HiraginoSansGBTitle", "Athelas", "Palatino", "Palatino Linotype", serif;
+            --font-opt-2: "Charter", "Bitstream Charter", "Palatino", "Palatino Linotype", "NotoCJK", serif;
+            --font-opt-3: "Georgia", "HYCuFangSongJCJK", "NotoCJK", "Songti SC", "Source Han Serif SC", serif;
+            --font-opt-3-display: "Didot", "Bodoni MT", ui-serif, serif;
         }
 
         * {
             box-sizing: border-box;
-        }
-
-        html {
-            color-scheme: light;
             scroll-behavior: smooth;
         }
 
         body {
             margin: 0;
-            color: var(--text-graphite);
-            font-family: var(--font-default);
-            background:
-                radial-gradient(circle at top left, rgba(255, 255, 255, 0.36), transparent 28%),
-                radial-gradient(circle at 88% 12%, rgba(193, 58, 75, 0.07), transparent 18%),
-                radial-gradient(circle at 10% 82%, rgba(12, 107, 138, 0.06), transparent 18%),
-                linear-gradient(180deg, var(--bg-base) 0%, var(--bg-mantle) 100%);
-        }
-
-        body::after {
-            content: "";
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            background: radial-gradient(circle at center, transparent 62%, rgba(51, 45, 41, 0.06) 120%);
-            z-index: -1;
-        }
-
-        a {
-            color: inherit;
-            text-decoration-color: rgba(12, 107, 138, 0.36);
-            text-underline-offset: 0.16em;
-        }
-
-        .page {
-            width: min(1500px, calc(100vw - 40px));
-            margin: 0 auto;
-            padding: 34px 0 84px;
-        }
-
-        .hero {
-            display: grid;
-            grid-template-columns: minmax(0, 1.4fr) minmax(320px, 0.86fr);
-            gap: 28px;
-            padding: clamp(30px, 4vw, 46px);
-            border: 1px solid var(--shell-border-strong);
-            border-radius: 36px;
-            background:
-                linear-gradient(180deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.1)),
-                linear-gradient(180deg, rgba(228, 215, 200, 0.84), rgba(218, 201, 183, 0.72));
-            box-shadow: var(--shell-shadow);
-        }
-
-        .hero-label {
-            margin: 0 0 1rem;
-            color: rgba(51, 45, 41, 0.58);
-            font-family: var(--font-shell-mono);
-            font-size: 0.74rem;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-        }
-
-        .hero h1 {
-            margin: 0;
-            max-width: 9ch;
-            font-family: var(--font-shell-display);
-            font-size: clamp(4rem, 8vw, 6.1rem);
-            line-height: 0.94;
-            letter-spacing: -0.05em;
-        }
-
-        .hero p {
-            max-width: 34em;
-            margin: 1.35rem 0 0;
-            font-family: var(--font-shell-serif);
-            font-size: 1.08rem;
-            line-height: 1.9;
-            color: rgba(51, 45, 41, 0.84);
-        }
-
-        .hero-side {
-            display: grid;
-            gap: 0;
-            border: 1px solid rgba(51, 45, 41, 0.08);
-            border-radius: 28px;
-            background: rgba(255, 255, 255, 0.16);
-            overflow: hidden;
-        }
-
-        .hero-panel {
-            padding: 22px 24px;
-        }
-
-        .hero-panel + .hero-panel {
-            border-top: 1px solid rgba(51, 45, 41, 0.08);
-        }
-
-        .panel-label {
-            margin: 0 0 0.7rem;
-            color: rgba(51, 45, 41, 0.56);
-            font-family: var(--font-shell-mono);
-            font-size: 0.72rem;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-        }
-
-        .hero-side h2 {
-            margin: 0 0 0.8rem;
-            font-family: var(--font-shell-serif);
-            font-size: 1.3rem;
-            line-height: 1.15;
-        }
-
-        .calibration-list {
-            display: grid;
-            gap: 0.78rem;
-            margin: 0;
-            padding: 0;
-            list-style: none;
-        }
-
-        .calibration-list li {
-            position: relative;
-            padding-left: 1rem;
-            font-size: 0.96rem;
-            line-height: 1.72;
-            color: rgba(51, 45, 41, 0.8);
-        }
-
-        .calibration-list li::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 0.72em;
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            background: var(--accent-prussian);
-        }
-
-        .hero-index {
-            display: grid;
-            gap: 0.75rem;
-        }
-
-        .hero-index a {
-            display: grid;
-            gap: 0.16rem;
-            padding: 0.9rem 0.95rem;
-            border: 1px solid rgba(51, 45, 41, 0.06);
-            border-radius: 18px;
-            background: rgba(255, 255, 255, 0.14);
-            text-decoration: none;
-        }
-
-        .index-label {
-            color: rgba(51, 45, 41, 0.5);
-            font-family: var(--font-shell-mono);
-            font-size: 0.7rem;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-        }
-
-        .index-title {
-            font-family: var(--font-shell-serif);
-            font-size: 1.04rem;
-            line-height: 1.2;
-        }
-
-        .sections {
-            display: grid;
-            gap: 70px;
-            margin-top: 58px;
-        }
-
-        .specimen {
-            position: relative;
-            padding-top: 18px;
-        }
-
-        .specimen::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: min(180px, 24vw);
-            height: 2px;
-            background: linear-gradient(90deg, var(--option-accent), rgba(51, 45, 41, 0.12));
-        }
-
-        .specimen-head {
-            display: grid;
-            grid-template-columns: minmax(0, 1fr) minmax(380px, 560px);
-            gap: 28px;
-            align-items: end;
-            margin-bottom: 22px;
-        }
-
-        .specimen-kicker {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.55rem;
-            padding: 0.5rem 0.9rem;
-            border-radius: 999px;
-            background: var(--option-soft);
-            color: var(--option-accent);
-            font-family: var(--font-shell-mono);
-            font-size: 0.72rem;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-        }
-
-        .specimen-head h2 {
-            margin: 1rem 0 0.6rem;
-            font-family: var(--font-shell-display);
-            font-size: clamp(3rem, 4.6vw, 4.6rem);
-            line-height: 0.96;
-            letter-spacing: -0.05em;
-        }
-
-        .specimen-head p {
-            max-width: 32em;
-            margin: 0;
-            font-family: var(--font-shell-serif);
-            font-size: 1.06rem;
-            line-height: 1.9;
-            color: rgba(51, 45, 41, 0.84);
-        }
-
-        .metric-row {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 12px;
-        }
-
-        .metric {
-            min-height: 142px;
-            padding: 16px 16px 18px;
-            border: 1px solid rgba(51, 45, 41, 0.07);
-            border-radius: 22px;
-            background:
-                linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.08)),
-                rgba(228, 215, 200, 0.56);
-            box-shadow: var(--shell-shadow-soft);
-        }
-
-        .metric-label {
-            color: rgba(51, 45, 41, 0.5);
-            font-family: var(--font-shell-mono);
-            font-size: 0.68rem;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-        }
-
-        .metric-value {
-            margin-top: 0.62rem;
-            font-family: var(--font-shell-serif);
-            font-size: 1rem;
-            line-height: 1.62;
-            color: rgba(51, 45, 41, 0.84);
-        }
-
-        .stage-shell {
-            padding: 18px;
-            border: 1px solid var(--shell-border-strong);
-            border-radius: 36px;
-            background:
-                radial-gradient(circle at top right, var(--option-wash), transparent 28%),
-                linear-gradient(180deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.08)),
-                linear-gradient(180deg, rgba(226, 212, 196, 0.88), rgba(218, 201, 183, 0.78));
-            box-shadow: var(--shell-shadow);
-        }
-
-        .stage-topbar {
+            background-color: var(--bg-master);
+            color: var(--text-master);
+            font-family: var(--font-sans);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background-image:
+                linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+                linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+            background-size: 2rem 2rem;
+            background-position: center top;
+            min-height: 100vh;
             display: flex;
-            align-items: center;
+            flex-direction: column;
+        }
+
+        /* ==========================================================================
+           Master Proof Header
+           ========================================================================== */
+        .proof-header {
+            padding: 1.5rem 3rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            display: flex;
             justify-content: space-between;
-            gap: 14px;
-            margin-bottom: 14px;
-            padding: 4px 6px 0;
+            align-items: center;
+            background: rgba(239, 236, 230, 0.85);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        .stage-label {
-            color: rgba(51, 45, 41, 0.52);
-            font-family: var(--font-shell-mono);
-            font-size: 0.72rem;
-            letter-spacing: 0.16em;
+        .meta-text {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
             text-transform: uppercase;
+            letter-spacing: 0.15em;
+            line-height: 1.6;
+            color: rgba(0, 0, 0, 0.45);
         }
 
-        .stage-flags {
+        .meta-text strong {
+            color: var(--text-master);
+            font-weight: 500;
+        }
+
+        .header-title {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            margin: 0;
+            text-transform: uppercase;
+            text-align: center;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* ==========================================================================
+           Master Index Ticket (Fixed Bottom Right)
+           ========================================================================== */
+        .master-index-ticket {
+            position: fixed;
+            bottom: 3rem;
+            right: 3rem;
+            width: 280px;
+            background: var(--bg-master);
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+            font-family: var(--font-mono);
+            box-shadow: 12px 12px 0 rgba(0, 0, 0, 0.03);
+            /* Brutalist shadow */
+        }
+
+        .ticket-header {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-master);
             display: flex;
-            flex-wrap: wrap;
-            justify-content: flex-end;
-            gap: 8px;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.02);
         }
 
-        .stage-flag {
-            padding: 0.46rem 0.74rem;
-            border: 1px solid rgba(51, 45, 41, 0.07);
-            border-radius: 999px;
-            background: rgba(255, 255, 255, 0.18);
-            color: rgba(51, 45, 41, 0.72);
-            font-size: 0.78rem;
-            line-height: 1;
+        .ticket-status-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent-master);
+            box-shadow: 0 0 0 2px rgba(211, 61, 41, 0.2);
+            animation: pulse 2s infinite;
         }
 
-        .workspace {
-            padding: clamp(22px, 4vw, 34px);
-            border: 1px solid var(--workspace-border);
-            border-radius: var(--workspace-radius);
-            background:
-                linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.03)),
-                linear-gradient(180deg, var(--bg-mantle), var(--bg-surface));
-            box-shadow:
-                inset 0 1px 0 rgba(255, 255, 255, 0.18),
-                0 14px 28px rgba(51, 45, 41, 0.035);
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(211, 61, 41, 0.4);
+            }
+
+            70% {
+                box-shadow: 0 0 0 4px rgba(211, 61, 41, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(211, 61, 41, 0);
+            }
         }
 
-        .note {
-            max-width: 940px;
+        .ticket-body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ticket-row {
+            display: grid;
+            grid-template-columns: 24px 1fr auto;
+            align-items: baseline;
+            padding: 0.85rem 1rem;
+            text-decoration: none;
+            color: rgba(0, 0, 0, 0.6);
+            border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+            transition: all 0.2s ease;
+        }
+
+        .ticket-row:last-child {
+            border-bottom: none;
+        }
+
+        .ticket-row:hover {
+            background: var(--text-master);
+            color: var(--bg-master);
+            border-bottom-color: var(--text-master);
+        }
+
+        .ticket-num {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            color: var(--accent-master);
+        }
+
+        .ticket-row:hover .ticket-num {
+            color: var(--bg-master);
+        }
+
+        .ticket-name {
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .ticket-meta {
+            font-size: 0.65rem;
+            opacity: 0.6;
+        }
+
+        /* ==========================================================================
+           Exhibition Layout
+           ========================================================================== */
+        .exhibition-container {
+            padding: 4rem 3rem 8rem;
+            display: flex;
+            flex-direction: column;
+            gap: 8rem;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: clamp(34px, 5vw, 54px) clamp(28px, 5vw, 48px) clamp(42px, 6vw, 62px);
-            background: var(--article-panel-bg);
-            border: 1px solid var(--article-panel-border);
-            border-radius: var(--article-panel-radius);
-            box-shadow: var(--article-panel-shadow);
+            width: 100%;
         }
 
-        .note-path {
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-            line-height: 1.5;
-            color: rgba(51, 45, 41, 0.56);
-            letter-spacing: 0.01em;
-        }
-
-        .note h1 {
-            margin: 0 0 1.45rem;
-            max-width: 15ch;
-            color: var(--text-graphite);
-        }
-
-        .properties {
+        .theme-panel {
             display: grid;
-            gap: 0.8rem;
-            margin: 0 0 2.4rem;
-            padding: 0.2rem 0 0.4rem;
-        }
-
-        .property-row {
-            display: grid;
-            grid-template-columns: 110px minmax(0, 1fr);
-            gap: 0.8rem;
+            grid-template-columns: 280px 1fr;
+            gap: 3rem;
             align-items: start;
         }
 
-        .property-label {
-            font-size: 0.95rem;
-            line-height: 1.5;
-            color: rgba(51, 45, 41, 0.58);
-            letter-spacing: 0.01em;
+        .theme-info {
+            position: sticky;
+            top: 8rem;
         }
 
-        .property-value {
-            min-width: 0;
-            font-size: 1rem;
-            line-height: 1.7;
+        .theme-number {
+            font-family: var(--font-display);
+            font-size: 6rem;
+            line-height: 0.8;
+            margin: 0 0 1.5rem -0.2rem;
+            color: var(--accent-master);
         }
 
-        .chips {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.45rem;
-        }
-
-        .chip {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.24rem 0.68rem;
-            border-radius: 999px;
-            background: rgba(12, 107, 138, 0.12);
-            color: var(--accent-prussian);
-            white-space: nowrap;
-        }
-
-        .note h2 {
-            margin: 2.5rem 0 0.9rem;
-            font-size: clamp(1.55rem, 2vw, 1.9rem);
-            line-height: 1.14;
-            color: var(--jewel-red);
-        }
-
-        .note p,
-        .note li,
-        .note th,
-        .note td {
+        .theme-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
             margin: 0 0 1rem;
+        }
+
+        .theme-desc {
+            font-size: 0.95rem;
+            line-height: 1.65;
+            color: rgba(0, 0, 0, 0.6);
+            margin: 0 0 2rem;
+        }
+
+        .tech-specs {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            line-height: 1.8;
+            color: rgba(0, 0, 0, 0.45);
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            padding-top: 1.5rem;
+        }
+
+        .tech-specs strong {
+            color: var(--text-master);
+            font-weight: normal;
+        }
+
+        /* ==========================================================================
+           Obsidian Minimal Window (Tab + Pane ONLY)
+           ========================================================================== */
+        .obsidian-window {
+            background: #145E6B;
+            /* Kept the teal background just to frame the paper */
+            border-radius: 12px;
+            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            padding: 8px 8px 8px 8px;
+            /* Padding to frame the paper */
+        }
+
+        /* Rainbow Tabs Area */
+        .obs-tabs-container {
+            display: flex;
+            height: 38px;
+            margin-bottom: 8px;
+            gap: 4px;
+            padding: 0 4px;
+        }
+
+        .obs-tab {
+            flex: 1;
+            max-width: 250px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            padding: 0 12px;
+            gap: 8px;
+            cursor: default;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .obs-tab svg {
+            width: 14px;
+            height: 14px;
+            opacity: 0.8;
+        }
+
+        .obs-tab .tab-close {
+            margin-left: auto;
+            width: 12px;
+            height: 12px;
+            opacity: 0.5;
+        }
+
+        .obs-tab.active {
+            background: var(--vellum-bg);
+            color: var(--vellum-ink);
+        }
+
+        /* Rainbow Top Border on Active Tab */
+        .obs-tab.active::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg,
+                    #ff595e 0%,
+                    #ffca3a 25%,
+                    #8ac926 50%,
+                    #1982c4 75%,
+                    #6a4c93 100%);
+        }
+
+        /* Editor Pane (Vellum Surface) */
+        .obs-pane {
+            background: var(--vellum-bg);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            min-height: 600px;
+        }
+
+        .pane-header {
+            padding: 1rem 2rem 0.5rem;
+            font-size: 0.8rem;
+            color: rgba(51, 45, 41, 0.4);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .pane-breadcrumbs {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        /* ==========================================================================
+           Note Content (The Payload)
+           ========================================================================== */
+        .note-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 1.5rem 4rem 6rem;
+            color: var(--vellum-ink);
+            width: 100%;
+        }
+
+        .note-title-giant {
+            font-size: clamp(2.5rem, 4vw, 3.2rem);
+            line-height: 1.25;
+            margin: 0 0 1.5rem;
+            color: var(--vellum-ink);
+            font-weight: 700;
+        }
+
+        .note-subtitle {
+            font-size: 1.6rem;
+            color: var(--vellum-red);
+            line-height: 1.4;
+            margin-bottom: 2.5rem;
+            font-weight: normal;
+        }
+
+        /* Typography Tags */
+        .note-content p,
+        .note-content li {
+            margin: 0 0 1.2rem;
             text-align: justify;
         }
 
-        .note ul {
-            margin: 0 0 1.45rem;
-            padding-left: 1.4rem;
+        .note-content ul {
+            padding-left: 1.5rem;
+            margin: 0 0 1.5rem;
         }
 
-        .note li::marker {
-            color: var(--accent-prussian);
+        .note-content li::marker {
+            color: var(--vellum-red);
         }
 
-        .note hr {
-            margin: 1.75rem 0;
-            border: none;
-            border-top: 1px solid var(--text-divider);
-        }
-
-        strong {
-            color: var(--jewel-red);
+        .note-content strong {
+            color: var(--vellum-red);
             font-weight: 700;
         }
 
-        em {
+        .note-content em {
             font-style: italic;
-            opacity: 0.96;
+            opacity: 0.9;
         }
 
-        code,
-        pre,
-        pre code {
-            font-family: var(--code-ibm);
-        }
-
-        code {
-            padding: 0.2em 0.42em;
+        .note-content code {
+            font-family: var(--font-mono);
+            background: var(--vellum-code-bg);
+            color: var(--vellum-red);
+            padding: 0.15em 0.4em;
             border-radius: 4px;
-            background: rgba(51, 45, 41, 0.05);
-            font-size: 0.9em;
+            font-size: 0.85em;
         }
 
-        pre {
-            margin: 1rem 0 1.1rem;
-            padding: 1rem 1.05rem;
-            overflow-x: auto;
-            border: 1px solid rgba(51, 45, 41, 0.05);
-            border-radius: 8px;
-            background: var(--code-panel-bg);
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
+        .callout-quote {
+            color: var(--vellum-red);
+            border-left: 2px solid var(--vellum-red);
+            padding-left: 1rem;
+            margin: 2rem 0;
         }
 
-        pre code {
-            padding: 0;
-            background: transparent;
-            font-size: inherit;
-        }
+        /* ==========================================================================
+           Theme specific Overrides (Matching Project Settings)
+           ========================================================================== */
 
-        table {
-            width: 100%;
-            margin-top: 1rem;
-            border-collapse: collapse;
-            border: 1px solid var(--table-line-strong);
-        }
-
-        th,
-        td {
-            padding: 0.62rem 0.72rem;
-            text-align: left;
-            vertical-align: top;
-        }
-
-        th {
-            background: var(--table-header-bg);
-            border: 1px solid var(--table-line-strong);
-            font-weight: 700;
-        }
-
-        td {
-            background: var(--table-row-bg);
-            border: 1px solid var(--table-line);
-        }
-
-        .theme-1 {
-            --option-accent: #0c6b8a;
-            --option-soft: rgba(12, 107, 138, 0.12);
-            --option-wash: rgba(12, 107, 138, 0.12);
-        }
-
-        .theme-2 {
-            --option-accent: #332d29;
-            --option-soft: rgba(51, 45, 41, 0.1);
-            --option-wash: rgba(51, 45, 41, 0.08);
-        }
-
-        .theme-3 {
-            --option-accent: #c13a4b;
-            --option-soft: rgba(193, 58, 75, 0.12);
-            --option-wash: rgba(193, 58, 75, 0.09);
-        }
-
-        .theme-1 .note {
-            font-family: var(--font-option-1);
-        }
-
-        .theme-1 .note p,
-        .theme-1 .note li,
-        .theme-1 .note th,
-        .theme-1 .note td {
+        /* 1. Scriptorium: 1.1x Size, 1.65 LH, 0.02em tracking */
+        .theme-scriptorium .note-content {
+            font-family: var(--font-opt-1);
             font-size: 1.1rem;
+            /* approx 1.1x of base 16px */
             line-height: 1.65;
             letter-spacing: 0.02em;
-            word-spacing: 0.05em;
-            -webkit-font-smoothing: antialiased;
         }
 
-        .theme-1 .note h1 {
-            font-family: var(--font-option-1-title);
-            font-size: clamp(2.88rem, 4.3vw, 4.05rem);
-            line-height: 1.27;
+        .theme-scriptorium .note-title-giant {
+            font-family: var(--font-opt-1-title);
+            font-size: calc(2rem * 1.30);
+            /* H1 scaled up */
             letter-spacing: 0.012em;
         }
 
-        .theme-1 pre {
-            font-size: 0.92rem;
-            line-height: 1.3;
-            letter-spacing: -0.01em;
-            word-spacing: 0;
-        }
-
-        .theme-2 .note {
-            font-family: var(--font-option-2);
-        }
-
-        .theme-2 .note p,
-        .theme-2 .note li,
-        .theme-2 .note th,
-        .theme-2 .note td {
+        /* 2. Codex: Base Size, 1.6 LH, 0.01em tracking */
+        .theme-codex .note-content {
+            font-family: var(--font-opt-2);
+            font-size: 1rem;
             line-height: 1.6;
             letter-spacing: 0.01em;
-            -webkit-font-smoothing: antialiased;
         }
 
-        .theme-2 .note h1,
-        .theme-2 .note h2 {
-            font-family: var(--font-option-2);
+        .theme-codex .note-title-giant {
+            font-family: var(--font-opt-2);
+            font-size: calc(2rem * 1.30);
         }
 
-        .theme-2 .note h1 {
-            font-size: clamp(3.1rem, 4.7vw, 4.4rem);
-            line-height: 1.14;
-        }
-
-        .theme-3 .note {
-            font-family: var(--font-option-3-body);
-        }
-
-        .theme-3 .note p,
-        .theme-3 .note li,
-        .theme-3 .note th,
-        .theme-3 .note td {
+        /* 3. Feuilleton: 1.18x Size, 1.75 LH, 0.012em tracking */
+        .theme-feuilleton .note-content {
+            font-family: var(--font-opt-3);
             font-size: 1.18rem;
+            /* 1.18x of base 16px */
             line-height: 1.75;
             letter-spacing: 0.012em;
-            font-weight: 400;
-            -webkit-font-smoothing: antialiased;
         }
 
-        .theme-3 .note h1 {
-            font-family: var(--font-option-3-display), "NotoCJK", "Songti SC", "Source Han Serif SC", serif;
-            font-size: clamp(3.15rem, 4.8vw, 4.6rem);
-            line-height: 1.08;
-            letter-spacing: 0.01em;
-            max-width: 14ch;
+        .theme-feuilleton .note-title-giant {
+            font-family: var(--font-opt-3-display), var(--font-opt-3);
+            font-size: calc(2rem * 1.3);
+            font-weight: bold;
         }
 
-        .theme-3 .note h2 {
-            font-family: var(--font-option-3-body);
-            text-transform: none;
-        }
-
-        @media (max-width: 1120px) {
-            .hero,
-            .specimen-head {
+        /* Responsive Layout */
+        @media (max-width: 1100px) {
+            .theme-panel {
                 grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
-            .metric-row {
-                grid-template-columns: 1fr;
+            .theme-info {
+                position: relative;
+                top: 0;
+                display: flex;
+                gap: 2rem;
+                align-items: baseline;
+            }
+
+            .theme-number {
+                margin: 0;
+                font-size: 4rem;
             }
         }
 
-        @media (max-width: 860px) {
-            .page {
-                width: min(100vw - 24px, 1500px);
-                padding: 16px 0 48px;
+        @media (max-width: 768px) {
+            .obsidian-window {
+                padding: 4px;
             }
 
-            .hero {
-                padding: 24px 20px;
-                border-radius: 26px;
+            .exhibition-container {
+                padding: 2rem 1rem;
             }
 
-            .hero h1 {
+            .note-content {
+                padding: 1.5rem;
+            }
+
+            .obs-tab {
                 max-width: none;
-                font-size: clamp(3rem, 14vw, 4.5rem);
             }
 
-            .stage-topbar {
-                align-items: flex-start;
-                flex-direction: column;
-            }
-
-            .stage-shell {
-                padding: 12px;
-                border-radius: 24px;
-            }
-
-            .workspace {
-                padding: 14px;
-                border-radius: 18px;
-            }
-
-            .note {
-                padding: 26px 20px 34px;
-                border-radius: 14px;
-            }
-
-            .property-row {
-                grid-template-columns: 1fr;
-                gap: 0.2rem;
-            }
-
-            .note h1 {
-                max-width: none;
+            .master-index-ticket {
+                display: none;
+                /* Hide ticket on very small screens */
             }
         }
     </style>
 </head>
 
 <body>
-    <div class="page">
-        <header class="hero">
-            <div>
-                <p class="hero-label">Antique Vellum / Specimen Journal</p>
-                <h1>Obsidian 阅读面样张册</h1>
-                <p>这页现在被当作一本样张册来设计，而不是说明面板。外层展示壳层可以更高级、更有节奏，但内层笔记仍然是被校准的对象：真实 note 宽度、可见 properties、标题比例、单层级 code 深度，以及克制的表格对比，都继续对齐 Obsidian 里的 live 效果。</p>
-            </div>
 
-            <aside class="hero-side">
-                <section class="hero-panel">
-                    <p class="panel-label">Calibration</p>
-                    <h2>外层可以设计，内层必须准确</h2>
-                    <ul class="calibration-list">
-                        <li>判断 fidelity 时，请看舞台里的 note specimen，而不是外层展示壳层。</li>
-                        <li>三套方案共享同一层 vellum 材质语言，但各自拥有不同的标题行为与阅读节奏。</li>
-                        <li>外层网页允许更高级，但绝不能压缩、裁切或抢走样张本体的主导权。</li>
-                    </ul>
-                </section>
+    <header class="proof-header">
+        <div class="meta-text">JOB NO. 2026-0413<br>UI: MINIMAL TAB</div>
+        <h1 class="header-title">Antique Vellum</h1>
+        <div class="meta-text" style="text-align: right;">PRESS: OBSIDIAN ENGINE<br>PROOF: MASTER APPROVAL</div>
+    </header>
 
-                <nav class="hero-panel hero-index" aria-label="样张目录">
-                    <p class="panel-label">Contents</p>
-                    <a href="#scriptorium">
-                        <span class="index-label">Option I</span>
-                        <span class="index-title">Scriptorium 孤高名士</span>
-                    </a>
-                    <a href="#codex">
-                        <span class="index-label">Option II</span>
-                        <span class="index-title">Codex 学术雕版</span>
-                    </a>
-                    <a href="#feuilleton">
-                        <span class="index-label">Option III</span>
-                        <span class="index-title">Feuilleton 杂志名利场</span>
-                    </a>
-                </nav>
+    <main class="exhibition-container">
+
+        <!-- ==========================================
+             PANEL I: SCRIPTORIUM 
+             ========================================== -->
+        <article class="theme-panel" id="theme-scriptorium">
+            <aside class="theme-info">
+                <div class="theme-number">I</div>
+                <div>
+                    <h2 class="theme-name">Scriptorium 孤高名士</h2>
+                    <p class="theme-desc">深度还原「算力金字塔」实机截图：彩虹渐变标签页，秋水书体与 Vellum 纸张的极致渲染。正文略微放大并舒展字距，展现私人手稿的呼吸感。</p>
+                    <div class="tech-specs">RHYTHM: <strong>1.1X SIZE / 1.65 LH</strong><br>SPACING: <strong>+0.02EM
+                            TRACKING</strong><br>FONT: <strong>QIUSHUI CJK / ATHELAS</strong></div>
+                </div>
             </aside>
-        </header>
 
-        <main class="sections">
-            <section id="scriptorium" class="specimen theme-1">
-                <div class="specimen-head">
-                    <div>
-                        <div class="specimen-kicker">Option I / Scriptorium</div>
-                        <h2>Scriptorium</h2>
-                        <p>最像私人手稿的一套：更温暖、更舒展、更有呼吸感，叙述性正文与紧凑代码之间的层次也更明显。</p>
-                    </div>
-
-                    <div class="metric-row">
-                        <div class="metric">
-                            <div class="metric-label">Rhythm</div>
-                            <div class="metric-value">1.1x 正文字号、1.65 行高、更舒展的字距与词距，以及更明显的手稿式呼吸感。</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-label">Keep True</div>
-                            <div class="metric-value">真实 note 宽度、可见 properties、柔和石墨色，以及只下沉一层的代码面板。</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-label">Presentation</div>
-                            <div class="metric-value">外层网页应像一本样张册中的 folio 托底，而不是另一个和正文抢戏的界面。</div>
-                        </div>
+            <div class="obsidian-window theme-scriptorium">
+                <div class="obs-tabs-container">
+                    <div class="obs-tab active">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+                        </svg>
+                        算力金字塔：从计算物理学...
+                        <svg class="tab-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
                     </div>
                 </div>
 
-                <div class="stage-shell">
-                    <div class="stage-topbar">
-                        <div class="stage-label">Obsidian faithful specimen</div>
-                        <div class="stage-flags">
-                            <span class="stage-flag">真实 note 宽度</span>
-                            <span class="stage-flag">properties 可见</span>
-                            <span class="stage-flag">单层级 code</span>
+                <div class="obs-pane">
+                    <div class="pane-header">
+                        <div class="pane-breadcrumbs">
+                            <span>190</span>
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M19 12H5M12 19l-7-7 7-7" />
+                            </svg>
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+                                stroke-width="2" style="opacity:0.3">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
                         </div>
+                        <div>Atlas Outputs / 算力金字塔：从计算物理学...</div>
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="1" />
+                            <circle cx="19" cy="12" r="1" />
+                            <circle cx="5" cy="12" r="1" />
+                        </svg>
                     </div>
+                    <div class="note-content">
+                        <div class="note-title-giant">算力金字塔：从计算物理学的第一性原理到深度学习的流形折叠</div>
 
-                    <div class="workspace">
-                        <article class="note">
-                            <div class="note-path">01.Input / 01.Articles / Scriptorium 样张</div>
-                            <h1>2026-04-11. 图书馆与分岔小径</h1>
+                        <div class="note-subtitle">
+                            为什么‘算力工厂’开始吞噬世界，利润却依然属于‘科学家’？
+                        </div>
 
-                            <section class="properties" aria-label="笔记属性">
-                                <div class="property-row">
-                                    <div class="property-label">tags</div>
-                                    <div class="property-value chips">
-                                        <span class="chip">reading-surface</span>
-                                        <span class="chip">scriptorium</span>
-                                    </div>
-                                </div>
-                                <div class="property-row">
-                                    <div class="property-label">source</div>
-                                    <div class="property-value"><a href="#">archive://vellum/specimens/scriptorium</a></div>
-                                </div>
-                                <div class="property-row">
-                                    <div class="property-label">created</div>
-                                    <div class="property-value">2026/04/12</div>
-                                </div>
-                            </section>
+                        <p>在当下这个“算力即权力”的时代，硅谷和华尔街正纠缠在一场越来越像“信仰之争”的路线博弈。</p>
 
-                            <h2>Summary</h2>
-                            <ul>
-                                <li>正文按 snippet 保持 1.1x 字号、1.65 行高和更舒展的字距。</li>
-                                <li><strong>秋水书体</strong> 负责正文气息，而文章标题单独切到 <strong>Hiragino Sans GB</strong>，需要在真实 note 宽度下才看得出层级反差。</li>
-                                <li>代码块只下沉一层，不再做成额外抢戏的装饰卡片。</li>
-                            </ul>
+                        <p>一边，是以 <strong>英伟达（NVIDIA）</strong> 为代表的“通用计算”正统。黄仁勋在 GTC 上高举AI for Science的旗帜，强调通过
+                            <strong>CUDA</strong>（NVIDIA 的并行计算平台）这种极度灵活的编程模型，以及 <code>FP64</code>
+                            等高精度计算能力，去正面硬刚物理世界那无限的复杂与未知。
+                        </p>
 
-                            <h2>混排实验 Mixed Prototype</h2>
-                            <p>当我们在一段话里同时谈论 archive、patina 与 <em>阅读尊严</em> 时，中英字符需要共享一种静定而不发硬的节奏。正文略放大，代码略收紧，这种反差只有在接近 Obsidian 实际版心时才成立；版心一旦被压窄，原本舒展的手稿气息就会被误读成拥挤。</p>
-                            <p>这也是这次修正的重点。不是再加视觉效果，而是把标题比例、段落宽度和属性区位置拉回真正的阅读面板逻辑，让 <code>note_memory</code> 与叙述文字自然分工；文章标题则单独切到 Hiragino Sans GB，形成更清楚的版面入口。</p>
+                        <p>另一边，则是以 <strong>Google TPU、Groq、Etched</strong>
+                            为代表的“专用算力工厂”阵营。他们信奉一种极端工程哲学：一切有价值的计算最终都可以被抽象为<strong>标准化的算子流</strong>（矩阵乘法 +
+                            若干非线性）。在这套世界观中，通用 GPU 上复杂的控制逻辑、分支预测、深层缓存层级，只是旧时代为了应对“不规则任务”而付出的效率代价。</p>
 
-                            <hr>
+                        <p>表面看，这是一个围绕“每 Token 成本”的经济账：谁的 Token 更便宜，谁就能占领云端推理市场。</p>
 
-                            <pre><code>function seekPatina(vault) {
-  return vault.filter((note) =&gt; note.surface === "vellum");
-}</code></pre>
+                        <p>但更本质的，其实是<strong>硅基计算系统在应对物理复杂性时的两种进化策略</strong>：一种押注世界是可压缩的，模式可以被发现，然后固化为高效流水线。另一种押注世界是混乱且未完成的，必须保留探索的灵活性。
+                        </p>
 
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>维度</th>
-                                        <th>当前表现</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>正文节奏</td>
-                                        <td>1.1x 字号、1.65 行高、较舒展的字距与词距，接近真实手稿式阅读面。</td>
-                                    </tr>
-                                    <tr>
-                                        <td>代码层次</td>
-                                        <td>单层加深，密度更像 Obsidian 里的 coding editor，而不是外加说明框。</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </article>
+                        <p>那么问题来了：</p>
+
+                        <p class="callout-quote">英伟达会被取代吗？通用计算的尽头，真的是极致专用化吗？</p>
+
+                        <p>要回答这个问题，我们不能只看芯片规格或者财报增长曲线，而必须先把所有商业术语暂时屏蔽，从计算的物理第一性原理出发，构建一幅“算力大一统图景”。</p>
                     </div>
                 </div>
-            </section>
+            </div>
+        </article>
 
-            <section id="codex" class="specimen theme-2">
-                <div class="specimen-head">
-                    <div>
-                        <div class="specimen-kicker">Option II / Codex</div>
-                        <h2>Codex</h2>
-                        <p>最像档案与研究笔记的一套：更规整、更安静、更稳定，适合长篇论证、参考文献和结构化记录。</p>
-                    </div>
+        <!-- ==========================================
+             PANEL II: CODEX
+             ========================================== -->
+        <article class="theme-panel" id="theme-codex">
+            <aside class="theme-info">
+                <div class="theme-number">II</div>
+                <div>
+                    <h2 class="theme-name">Codex 沉思手札</h2>
+                    <p class="theme-desc">西文采用 Charter，中文字距收紧。排版回归标准字号与 1.6 行高，更适合长篇论证与学术文献记录，结构规整冷静。</p>
+                    <div class="tech-specs">RHYTHM: <strong>BASE SIZE / 1.6 LH</strong><br>SPACING: <strong>+0.01EM
+                            TRACKING</strong><br>FONT: <strong>CHARTER / NOTO SERIF</strong></div>
+                </div>
+            </aside>
 
-                    <div class="metric-row">
-                        <div class="metric">
-                            <div class="metric-label">Rhythm</div>
-                            <div class="metric-value">保持基准字号、1.6 行高、克制的字距，正文块面更像规整的档案页。</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-label">Keep True</div>
-                            <div class="metric-value">标题层级必须克制，分割线中性，表格清楚但不能压成硬网格。</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-label">Presentation</div>
-                            <div class="metric-value">外层可以有“学术样张册”的气质，但内层笔记依然必须像真实研究笔记。</div>
-                        </div>
+            <div class="obsidian-window theme-codex">
+                <div class="obs-tabs-container">
+                    <div class="obs-tab active">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+                        </svg>
+                        算力金字塔：从计算物理学...
+                        <svg class="tab-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
                     </div>
                 </div>
 
-                <div class="stage-shell">
-                    <div class="stage-topbar">
-                        <div class="stage-label">Obsidian faithful specimen</div>
-                        <div class="stage-flags">
-                            <span class="stage-flag">基准字号</span>
-                            <span class="stage-flag">安静分割线</span>
-                            <span class="stage-flag">可读表格</span>
+                <div class="obs-pane">
+                    <div class="pane-header">
+                        <div class="pane-breadcrumbs">
+                            <span>190</span>
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M19 12H5M12 19l-7-7 7-7" />
+                            </svg>
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+                                stroke-width="2" style="opacity:0.3">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
                         </div>
+                        <div>Atlas Outputs / 算力金字塔：从计算物理学...</div>
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="1" />
+                            <circle cx="19" cy="12" r="1" />
+                            <circle cx="5" cy="12" r="1" />
+                        </svg>
                     </div>
+                    <div class="note-content">
+                        <div class="note-title-giant">算力金字塔：从计算物理学的第一性原理到深度学习的流形折叠</div>
 
-                    <div class="workspace">
-                        <article class="note">
-                            <div class="note-path">01.Input / 02.Research / Codex 样张</div>
-                            <h1>Archives &amp; 善本 Historical Records</h1>
+                        <div class="note-subtitle">
+                            为什么‘算力工厂’开始吞噬世界，利润却依然属于‘科学家’？
+                        </div>
 
-                            <section class="properties" aria-label="笔记属性">
-                                <div class="property-row">
-                                    <div class="property-label">tags</div>
-                                    <div class="property-value chips">
-                                        <span class="chip">research/codex</span>
-                                        <span class="chip">metadata</span>
-                                    </div>
-                                </div>
-                                <div class="property-row">
-                                    <div class="property-label">source</div>
-                                    <div class="property-value"><a href="#">archive://vellum/specimens/codex</a></div>
-                                </div>
-                                <div class="property-row">
-                                    <div class="property-label">created</div>
-                                    <div class="property-value">2026/04/12</div>
-                                </div>
-                            </section>
+                        <p>在当下这个“算力即权力”的时代，硅谷和华尔街正纠缠在一场越来越像“信仰之争”的路线博弈。</p>
 
-                            <h2>Summary</h2>
-                            <ul>
-                                <li>正文保持 1.6 行高和 0.01em 字距，不再被狭窄卡片误导成“展示型”排版。</li>
-                                <li><strong>Charter</strong> 与思源宋体的组合更接近文献、档案和结构化笔记的质感。</li>
-                                <li>分割线和表格边界只做轻度提示，保持可比对性而不增加压迫。</li>
-                            </ul>
+                        <p>一边，是以 <strong>英伟达（NVIDIA）</strong> 为代表的“通用计算”正统。黄仁勋在 GTC 上高举AI for Science的旗帜，强调通过
+                            <strong>CUDA</strong>（NVIDIA 的并行计算平台）这种极度灵活的编程模型，以及 <code>FP64</code>
+                            等高精度计算能力，去正面硬刚物理世界那无限的复杂与未知。
+                        </p>
 
-                            <h2>学术考据 Research Specimen</h2>
-                            <p>Codex 共享同样的 vellum 材质外壳，但它的排版不会主动制造文学性的松弛。Charter 与思源宋体把页面拉回到更理性、更工整的秩序里，让段落、术语和 <code>metadata_integrity</code> 的关系更接近一份可考据的文献记录。</p>
-                            <p>这次修正最重要的是把它放回真实 note 宽度。只有在接近 Obsidian 的阅读面板中，Codex 那种“规整矩形块面”的气质才成立；过窄的三栏卡片会把它错误地推向专栏式节奏。</p>
+                        <p>另一边，则是以 <strong>Google TPU、Groq、Etched</strong>
+                            为代表的“专用算力工厂”阵营。他们信奉一种极端工程哲学：一切有价值的计算最终都可以被抽象为<strong>标准化的算子流</strong>（矩阵乘法 +
+                            若干非线性）。在这套世界观中，通用 GPU 上复杂的控制逻辑、分支预测、深层缓存层级，只是旧时代为了应对“不规则任务”而付出的效率代价。</p>
 
-                            <hr>
+                        <p>表面看，这是一个围绕“每 Token 成本”的经济账：谁的 Token 更便宜，谁就能占领云端推理市场。</p>
 
-                            <pre><code># Academic Indexing Process
-GET /archives/vellum/_search
-{ "query": { "match": { "era": "Ancient" } } }</code></pre>
+                        <p>但更本质的，其实是<strong>硅基计算系统在应对物理复杂性时的两种进化策略</strong>：一种押注世界是可压缩的，模式可以被发现，然后固化为高效流水线。另一种押注世界是混乱且未完成的，必须保留探索的灵活性。
+                        </p>
 
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>维度</th>
-                                        <th>当前表现</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>正文节奏</td>
-                                        <td>1.6 行高，0.01em 字距，保持规整的矩形块面与更稳的学术页感。</td>
-                                    </tr>
-                                    <tr>
-                                        <td>结构提示</td>
-                                        <td>中性分割线与清晰表格，帮助比对而不制造额外装饰感。</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </article>
+                        <p>那么问题来了：</p>
+
+                        <p class="callout-quote">英伟达会被取代吗？通用计算的尽头，真的是极致专用化吗？</p>
+
+                        <p>要回答这个问题，我们不能只看芯片规格或者财报增长曲线，而必须先把所有商业术语暂时屏蔽，从计算的物理第一性原理出发，构建一幅“算力大一统图景”。</p>
                     </div>
                 </div>
-            </section>
+            </div>
+        </article>
 
-            <section id="feuilleton" class="specimen theme-3">
-                <div class="specimen-head">
-                    <div>
-                        <div class="specimen-kicker">Option III / Feuilleton</div>
-                        <h2>Feuilleton</h2>
-                        <p>最像专栏与智贵杂志的一套：标题更有展示级压场，正文摆幅更长，整体气质更克制、更有距离感。</p>
-                    </div>
+        <!-- ==========================================
+             PANEL III: FEUILLETON
+             ========================================== -->
+        <article class="theme-panel" id="theme-feuilleton">
+            <aside class="theme-info">
+                <div class="theme-number">III</div>
+                <div>
+                    <h2 class="theme-name">Feuilleton 智识专栏</h2>
+                    <p class="theme-desc">华仪粗仿宋简与 Georgia 搭配。排版摆幅最大，1.18x 字号配合 1.75 行高，展现编辑专栏般的阅读宽裕度，标题粗体压场感更强。</p>
+                    <div class="tech-specs">RHYTHM: <strong>1.18X SIZE / 1.75 LH</strong><br>SPACING: <strong>+0.012EM
+                            TRACKING</strong><br>FONT: <strong>GEORGIA / HYCU FANGSONG</strong></div>
+                </div>
+            </aside>
 
-                    <div class="metric-row">
-                        <div class="metric">
-                            <div class="metric-label">Rhythm</div>
-                            <div class="metric-value">1.18x 正文字号、1.75 行高、Georgia 西文与华仪粗仿宋简中文正文之间的混排反差。</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-label">Keep True</div>
-                            <div class="metric-value">标题必须足够大，正文必须足够从容，而标题以下的一切都必须更克制。</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-label">Presentation</div>
-                            <div class="metric-value">外层允许更像一本杂志样张册，但优雅依然要来自比例和留白，不是特效。</div>
-                        </div>
+            <div class="obsidian-window theme-feuilleton">
+                <div class="obs-tabs-container">
+                    <div class="obs-tab active">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+                        </svg>
+                        算力金字塔：从计算物理学...
+                        <svg class="tab-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
                     </div>
                 </div>
 
-                <div class="stage-shell">
-                    <div class="stage-topbar">
-                        <div class="stage-label">Obsidian faithful specimen</div>
-                        <div class="stage-flags">
-                            <span class="stage-flag">展示级标题</span>
-                            <span class="stage-flag">更长行距</span>
-                            <span class="stage-flag">编辑性克制</span>
+                <div class="obs-pane">
+                    <div class="pane-header">
+                        <div class="pane-breadcrumbs">
+                            <span>190</span>
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M19 12H5M12 19l-7-7 7-7" />
+                            </svg>
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+                                stroke-width="2" style="opacity:0.3">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
                         </div>
+                        <div>Atlas Outputs / 算力金字塔：从计算物理学...</div>
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="1" />
+                            <circle cx="19" cy="12" r="1" />
+                            <circle cx="5" cy="12" r="1" />
+                        </svg>
                     </div>
+                    <div class="note-content">
+                        <div class="note-title-giant">算力金字塔：从计算物理学的第一性原理到深度学习的流形折叠</div>
 
-                    <div class="workspace">
-                        <article class="note">
-                            <div class="note-path">01.Input / 03.Columns / Feuilleton 样张</div>
-                            <h1>2026-04-11. 聊一聊那些一眼看起来像“瞎搞”，实际很精妙的算法</h1>
+                        <div class="note-subtitle">
+                            为什么‘算力工厂’开始吞噬世界，利润却依然属于‘科学家’？
+                        </div>
 
-                            <section class="properties" aria-label="笔记属性">
-                                <div class="property-row">
-                                    <div class="property-label">tags</div>
-                                    <div class="property-value chips">
-                                        <span class="chip">editorial/voice</span>
-                                        <span class="chip">longform</span>
-                                    </div>
-                                </div>
-                                <div class="property-row">
-                                    <div class="property-label">source</div>
-                                    <div class="property-value"><a href="#">https://mp.weixin.qq.com/s/example</a></div>
-                                </div>
-                                <div class="property-row">
-                                    <div class="property-label">created</div>
-                                    <div class="property-value">2026/04/11</div>
-                                </div>
-                            </section>
+                        <p>在当下这个“算力即权力”的时代，硅谷和华尔街正纠缠在一场越来越像“信仰之争”的路线博弈。</p>
 
-                            <h2>Summary</h2>
-                            <ul>
-                                <li>正文采用 1.18x 字号和 1.75 行高，保留专栏长文摆幅，同时避免华仪粗仿宋简过细。</li>
-                                <li><strong>Didot 标题</strong> 负责展示级压场，正文则让 Georgia 西文与华仪粗仿宋简中文共存于同一阅读层。</li>
-                                <li>Obsidian 里的高级感主要来自比例、留白和标题压场，而不是额外描边或噪声。</li>
-                            </ul>
+                        <p>一边，是以 <strong>英伟达（NVIDIA）</strong> 为代表的“通用计算”正统。黄仁勋在 GTC 上高举AI for Science的旗帜，强调通过
+                            <strong>CUDA</strong>（NVIDIA 的并行计算平台）这种极度灵活的编程模型，以及 <code>FP64</code>
+                            等高精度计算能力，去正面硬刚物理世界那无限的复杂与未知。
+                        </p>
 
-                            <h2>专栏文学 Editorial Spirit</h2>
-                            <p>当前版本的 Feuilleton 不再把“仿宋感”理解成全局描边或一味加粗，而是通过 <strong>Didot 标题</strong>、Georgia 西文，以及华仪粗仿宋简中文正文的分工来建立编辑性反差。为了保证真实阅读舒适度，正文保留 1.18x 字号与 1.75 行高，同时把字距收回到更接近仿宋笔形的节奏。</p>
-                            <p>这次修正的重点不是把页面做得更夸张，而是让中英混排真正各司其职：西文继续稳定落在 Georgia，上方标题保持展示级压场，中文正文则交给华仪粗仿宋简。那种略带距离感的专栏气质，来自版心、比例与字体分流，而不是额外“做出来”的特效。</p>
+                        <p>另一边，则是以 <strong>Google TPU、Groq、Etched</strong>
+                            为代表的“专用算力工厂”阵营。他们信奉一种极端工程哲学：一切有价值的计算最终都可以被抽象为<strong>标准化的算子流</strong>（矩阵乘法 +
+                            若干非线性）。在这套世界观中，通用 GPU 上复杂的控制逻辑、分支预测、深层缓存层级，只是旧时代为了应对“不规则任务”而付出的效率代价。</p>
 
-                            <hr>
+                        <p>表面看，这是一个围绕“每 Token 成本”的经济账：谁的 Token 更便宜，谁就能占领云端推理市场。</p>
 
-                            <pre><code>const editorialAngle = (city) =&gt; {
-  return city.observe({ tone: "cool", distance: "poised" });
-};</code></pre>
+                        <p>但更本质的，其实是<strong>硅基计算系统在应对物理复杂性时的两种进化策略</strong>：一种押注世界是可压缩的，模式可以被发现，然后固化为高效流水线。另一种押注世界是混乱且未完成的，必须保留探索的灵活性。
+                        </p>
 
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>维度</th>
-                                        <th>当前表现</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>正文节奏</td>
-                                        <td>1.18x 字号、1.75 行高、0.012em 字距，让华仪粗仿宋简更显形，同时保住长文节奏。</td>
-                                    </tr>
-                                    <tr>
-                                        <td>标题反差</td>
-                                        <td>更大的展示级标题压住版面，正文则回到稳定、耐读的文章节奏。</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </article>
+                        <p>那么问题来了：</p>
+
+                        <p class="callout-quote">英伟达会被取代吗？通用计算的尽头，真的是极致专用化吗？</p>
+
+                        <p>要回答这个问题，我们不能只看芯片规格或者财报增长曲线，而必须先把所有商业术语暂时屏蔽，从计算的物理第一性原理出发，构建一幅“算力大一统图景”。</p>
                     </div>
                 </div>
-            </section>
-        </main>
-    </div>
+            </div>
+        </article>
+
+    </main>
+
+    <!-- Exhibition Navigator / Registration Ticket -->
+    <nav class="master-index-ticket">
+        <div class="ticket-header">
+            <span>INDEX // 001</span>
+            <div class="ticket-status-dot"></div>
+        </div>
+        <div class="ticket-body">
+            <a href="#theme-scriptorium" class="ticket-row">
+                <span class="ticket-num">I</span>
+                <span class="ticket-name">Scriptorium</span>
+                <span class="ticket-meta">1.1x / 1.65</span>
+            </a>
+            <a href="#theme-codex" class="ticket-row">
+                <span class="ticket-num">II</span>
+                <span class="ticket-name">Codex</span>
+                <span class="ticket-meta">Base / 1.6</span>
+            </a>
+            <a href="#theme-feuilleton" class="ticket-row">
+                <span class="ticket-num">III</span>
+                <span class="ticket-name">Feuilleton</span>
+                <span class="ticket-meta">1.18x / 1.75</span>
+            </a>
+        </div>
+    </nav>
+
 </body>
 
 </html>
