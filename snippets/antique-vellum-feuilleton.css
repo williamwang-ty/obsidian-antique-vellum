@@ -11,8 +11,8 @@
 @font-face {
     font-family: "HYCuFangSongJCJK";
     src: local("HYCuFangSongJ"),
-         local("HYd4gj"),
-         local("华仪粗仿宋简");
+        local("HYd4gj"),
+        local("华仪粗仿宋简");
     unicode-range: U+4E00-9FFF, U+3400-4DBF, U+20000-2A6DF, U+F900-FAFF, U+3000-303F, U+FF00-FFEF, U+2E80-2EFF, U+FE30-FE4F;
 }
 
@@ -22,8 +22,8 @@ body {
     --font-text: "Georgia", "HYCuFangSongJCJK", "Noto Serif SC", "Songti SC", "Source Han Serif SC", serif !important;
     --font-editor: "Georgia", "HYCuFangSongJCJK", "Noto Serif SC", "Songti SC", "Source Han Serif SC", serif !important;
 
-    --line-height-normal: 1.75;
-    --editor-line-height: 1.75;
+    --line-height-normal: 1.68;
+    --editor-line-height: 1.68;
 
     --av-article-panel-bg: var(--code-background);
     --av-article-panel-border: rgba(51, 45, 41, 0.04);
@@ -150,8 +150,8 @@ pre {
     border: 1px solid var(--av-table-line) !important;
 }
 
-.markdown-rendered tr + tr td,
-.markdown-source-view.mod-cm6 .cm-table-widget tr + tr td {
+.markdown-rendered tr+tr td,
+.markdown-source-view.mod-cm6 .cm-table-widget tr+tr td {
     border-top: 1px solid var(--av-table-line) !important;
 }
 
