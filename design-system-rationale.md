@@ -102,7 +102,7 @@ All three CSS snippets share the same reading-surface treatment, even though eac
 ### Common implemented behaviors
 
 - **Article panel as the reading stage** — Markdown views use a soft panel background derived from `var(--code-background)`, with a light border, rounded corners, and a soft shadow.
-- **Single-depth code hierarchy** — Code blocks sit visually deeper than article text, while inner `pre code` backgrounds are reset to transparent.
+- **Single-depth code hierarchy** — Code blocks sit visually deeper than article text, while inner `pre code` backgrounds are reset to transparent. In Apprentice, code typography is also tuned to read as a calm manuscript insert rather than a dense IDE slab.
 - **Quiet dividers** — Horizontal rules and heading dividers are restored with low-contrast graphite lines.
 - **Measured table structure** — Table borders, headers, and row fills are lightly strengthened so they remain readable on warm backgrounds.
 
@@ -267,7 +267,7 @@ For the current typography details, see [typography-rationale-and-spec.md](typog
 ### 当前已经实现的共同规则
 
 - **文章面板作为阅读舞台**：Markdown 视图使用从 `var(--code-background)` 派生的柔和 panel，并带有轻边框、圆角与阴影。
-- **单层级代码深度**：代码块比正文更深一层，但内部 `pre code` 背景被重置为透明。
+- **单层级代码深度**：代码块比正文更深一层，但内部 `pre code` 背景被重置为透明。对于 Apprentice，代码排版还会被进一步处理成更安静的“手稿插页”，而不是高密度 IDE 面板。
 - **安静的分割线**：`hr` 与标题分割线都以低对比的石墨线条恢复可见性。
 - **克制的表格结构**：表格边框、表头和行底色被轻度增强，以保证在暖色背景上依然清晰。
 

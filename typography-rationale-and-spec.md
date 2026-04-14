@@ -59,40 +59,50 @@ Users working under sustained learning pressure who want a note space that feels
 #### 当前字体栈
 
 - **Body / editor font:** `"QiushuiCJK", "KaitiCJK", "Crimson Pro", "Crimson Text", "Iowan Old Style", "Constantia", "Palatino", "Palatino Linotype", serif`
-- **Code font:** `"IBM Plex Mono", var(--font-monospace), monospace`
+- **Code font:** `"OperatorMonoBook", "Menlo", "Consolas", "KaitiCJK", "QiushuiCJK", monospace`
 - **Inline title font:** `"HiraginoSansGBTitle", "Crimson Pro", "Crimson Text", "Iowan Old Style", "Constantia", "Palatino", "Palatino Linotype", serif`
 
 - **正文 / 编辑器字体：** `"QiushuiCJK", "KaitiCJK", "Crimson Pro", "Crimson Text", "Iowan Old Style", "Constantia", "Palatino", "Palatino Linotype", serif`
-- **代码字体：** `"IBM Plex Mono", var(--font-monospace), monospace`
+- **代码字体：** `"OperatorMonoBook", "Menlo", "Consolas", "KaitiCJK", "QiushuiCJK", monospace`
 - **Inline Title 字体：** `"HiraginoSansGBTitle", "Crimson Pro", "Crimson Text", "Iowan Old Style", "Constantia", "Palatino", "Palatino Linotype", serif`
 
 #### Current implemented behavior
 
 #### 当前实现行为
 
-- Uses `@font-face` to define three proxy fonts: `QiushuiCJK`, `KaitiCJK`, and `HiraginoSansGBTitle`
+- Uses `@font-face` to define three CJK proxy fonts and one local code-font mapping: `QiushuiCJK`, `KaitiCJK`, `HiraginoSansGBTitle`, and `OperatorMonoBook`
 - Body line height: `1.65`
 - Body letter spacing: `0.02em`
 - No extra body `word-spacing`
 - Body / list / table text scaled to `1.1x`
 - Inline title scaled to `1.30 × H1`
-- Code blocks use tighter editor-like metrics:
-  - `line-height: 1.3`
-  - `letter-spacing: -0.01em`
+- Code blocks are designed as manuscript inserts rather than dense IDE slabs:
+  - humanist code stack led by `OperatorMonoBook`, with `Menlo` and `Consolas` as pragmatic fallbacks
+  - CJK comments fall back to `KaitiCJK` / `QiushuiCJK`
+  - `line-height: 1.5`
+  - `letter-spacing: 0`
   - `word-spacing: 0`
-  - `font-size: 0.9 × base`
+  - `font-size: 0.94 × base`
+  - block padding: `1.05em 1.35em`
+- Inline code is reduced to `0.9em` with subtle horizontal padding so it behaves like an annotation inside prose
+- Code comments use true italic styling where the selected code font provides it
 
-- 通过 `@font-face` 定义了三个代理字体：`QiushuiCJK`、`KaitiCJK`、`HiraginoSansGBTitle`
+- 通过 `@font-face` 定义了三个 CJK 代理字体与一个本地代码字体映射：`QiushuiCJK`、`KaitiCJK`、`HiraginoSansGBTitle`、`OperatorMonoBook`
 - 正文行高：`1.65`
 - 正文字距：`0.02em`
 - 不再额外设置正文 `word-spacing`
 - 正文 / 列表 / 表格文字放大到 `1.1x`
 - Inline Title 放大为 `1.30 × H1`
-- 代码块使用更接近编辑器的紧凑参数：
-  - `line-height: 1.3`
-  - `letter-spacing: -0.01em`
+- 代码块不再被当作高密度 IDE 面板，而是被设计为嵌在纸面里的“手稿插页”：
+  - 以 `OperatorMonoBook` 为首选的人文等宽栈，`Menlo` 与 `Consolas` 作为务实回退
+  - 中文注释回退到 `KaitiCJK` / `QiushuiCJK`
+  - `line-height: 1.5`
+  - `letter-spacing: 0`
   - `word-spacing: 0`
-  - `font-size: 0.9 × base`
+  - `font-size: 0.94 × base`
+  - 区块内边距：`1.05em 1.35em`
+- 行内代码缩小到 `0.9em`，并加入极轻的水平内边距，使其在正文中更像批注而不是 UI 标签
+- 若所选代码字体提供真正的斜体，代码注释会使用 true italic 形态
 
 #### Note
 
@@ -102,23 +112,33 @@ Apprentice is tuned primarily for CJK reading. It keeps body `letter-spacing: 0.
 
 Apprentice 目前以中文阅读为优先。正文保留 `letter-spacing: 0.02em` 以维持中文呼吸感，并移除了额外 `word-spacing` 以避免英文过松。若内容以英文为主，可适当减小或移除该 `letter-spacing`。
 
+#### Code-area design
+
+#### 代码区设计
+
+Apprentice treats code as a manuscript insert rather than a dense IDE slab. Latin code prefers `OperatorMonoBook` with `Menlo` / `Consolas` fallbacks, while Chinese comments route to `KaitiCJK` / `QiushuiCJK`. Inline code is slightly reduced so it sits inside prose more naturally.
+
+Apprentice 将代码区处理为“手稿插页”，而不是高密度 IDE 面板。拉丁代码优先使用 `OperatorMonoBook`，并回退到 `Menlo` / `Consolas`；中文注释则路由到 `KaitiCJK` / `QiushuiCJK`。行内代码会略微缩小，以便更自然地嵌入正文。
+
 #### What defines this preset in practice
 
 #### 这个方案在当前实现中的核心特征
 
-In the current repository, Apprentice is defined less by an abstract “manuscript feeling” and more by three concrete implementation choices tied directly to the learning scenario:
+In the current repository, Apprentice is defined less by an abstract “manuscript feeling” and more by five concrete implementation choices tied directly to the learning scenario:
 
-- Qiushui-based CJK routing keeps the body text gentle while preserving a clean and sharp textbook quality, avoiding a childish tone
+- Qiushui Shotai CJK routing keeps the body text gentle（ex. LXGW WenKai） while preserving a clean and sharp textbook quality (ex. Yu Kyokasho), avoiding a childish tone(LXGW WenKai)
 - a Crimson-centered Latin stack keeps English warm, clear, and slightly restrained, so mixed-language text feels intimate without becoming overly sweet or mechanically bookish
 - `Hiragino Sans GB` gives titles enough authority to hold the page without the heavier pressure of Song / Ming styles
 - larger body scaling and looser spacing create a calmer, more breathable rhythm for sustained study
+- code is treated as a manuscript insert rather than a detached IDE layer, using a humanist monospace voice, softened block spacing, and true italic comments where available
 
-在当前仓库中，Apprentice 与其说是靠抽象的“手稿感”成立，不如说是由三项直接服务学习场景的实现决定：
+在当前仓库中，Apprentice 与其说是靠抽象的“手稿感”成立，不如说是由五项直接服务学习场景的实现决定：
 
-- 通过秋水书体作为主 CJK 路由，让正文既亲切柔和，又保持干净锐利、不过分幼态
+- 通过秋水书体作为主 CJK 路由，让正文既亲切柔和（如霞鹜文楷），又保持干净锐利（如日文教科书体）、不过分幼态（霞鹜文楷）
 - 通过以 `Crimson Pro / Crimson Text` 为核心的西文字体栈，让英文保留手稿温度，同时维持清秀、克制、不过度甜美也不过度印刷化的气质
 - 通过 `Hiragino Sans GB` 为标题建立足够的压阵力，避免今楷偏软、宋体偏重的问题
 - 通过更大的正文倍率与更松的字距制造更安静、更有呼吸感的学习节奏
+- 通过把代码区处理成“手稿插页”而不是脱离页面的 IDE 面板，并使用人文等宽语调、柔化后的区块留白与可用时的真斜体注释，让技术内容也纳入同一套阅读气候
 
 Implementation files:
 - [snippets/antique-vellum-apprentice.css](snippets/antique-vellum-apprentice.css)

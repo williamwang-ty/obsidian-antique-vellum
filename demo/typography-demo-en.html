@@ -43,6 +43,20 @@
             unicode-range: U+4E00-9FFF, U+3400-4DBF, U+20000-2A6DF, U+F900-FAFF, U+3000-303F, U+FF00-FFEF, U+2E80-2EFF, U+FE30-FE4F;
         }
 
+        @font-face {
+            font-family: "OperatorMonoBook";
+            src: local("Operator Mono Book"), local("OperatorMono-Book"), local("Operator Mono");
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: "OperatorMonoBook";
+            src: local("Operator Mono Book Italic"), local("OperatorMono-BookItalic"), local("Operator Mono Italic"), local("Operator Mono");
+            font-weight: 400;
+            font-style: italic;
+        }
+
         /* ==========================================================================
            Root Variables (Exact match to project JSONs)
            ========================================================================== */
@@ -63,6 +77,7 @@
 
             /* Shell Fonts */
             --font-mono: "IBM Plex Mono", "SFMono-Regular", "Menlo", monospace;
+            --font-opt-1-code: "OperatorMonoBook", "Menlo", "Consolas", "KaitiCJK", "QiushuiCJK", monospace;
             --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             --font-display: "Didot", "Bodoni MT", "Times New Roman", serif;
 
@@ -467,6 +482,26 @@
             font-size: 0.85em;
         }
 
+        .note-content pre {
+            margin: 1.6rem 0;
+            background: var(--vellum-code-bg);
+            border: 1px solid rgba(51, 45, 41, 0.055);
+            border-radius: 12px;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
+            padding: 1.05em 1.35em;
+            overflow-x: auto;
+        }
+
+        .note-content pre code {
+            display: block;
+            background: transparent;
+            padding: 0;
+            border-radius: 0;
+            font-size: inherit;
+            color: var(--vellum-ink);
+            white-space: pre;
+        }
+
         .callout-quote {
             color: var(--vellum-red);
             border-left: 2px solid var(--vellum-red);
@@ -492,6 +527,32 @@
             font-size: calc(2rem * 1.30);
             /* H1 scaled up */
             letter-spacing: 0.012em;
+        }
+
+        .theme-apprentice .note-content :not(pre)>code {
+            font-family: var(--font-opt-1-code);
+            font-size: 0.9em;
+            padding-left: 0.16em;
+            padding-right: 0.16em;
+        }
+
+        .theme-apprentice .note-content pre code {
+            font-family: var(--font-opt-1-code);
+            font-size: 0.94em;
+            line-height: 1.5;
+            letter-spacing: 0;
+            word-spacing: 0;
+            font-weight: 400;
+            font-variant-ligatures: none;
+            font-feature-settings: "liga" 0, "calt" 0;
+            tab-size: 4;
+        }
+
+        .theme-apprentice .note-content pre em,
+        .theme-apprentice .note-content pre .comment {
+            font-family: var(--font-opt-1-code);
+            font-style: italic;
+            font-weight: 400;
         }
 
         /* 2. Codex: Base Size, 1.6 LH, 0.01em tracking */
@@ -590,7 +651,7 @@
                         gentle, approachable texture to offer quiet comfort and help the reader enter and maintain a
                         focused learning state.</p>
                     <div class="tech-specs">RHYTHM: <strong>1.1X SIZE / 1.65 LH</strong><br>SPACING: <strong>+0.02EM
-                            TRACKING</strong><br>FONT: <strong>QIUSHUI CJK / HIRAGINO SANS GB</strong></div>
+                            TRACKING</strong><br>FONT: <strong>QIUSHUI / OPERATOR MONO / HIRAGINO</strong></div>
                 </div>
             </aside>
 
@@ -664,6 +725,15 @@
 
                         <p>To answer that question, one must stop reading time as a straight line and begin reading it
                             as an architecture of branching intervals, returns, and unrealized continuities.</p>
+
+                        <pre><code>public static <T extends Comparable<T>> void quicksort(T[] array) {
+    if (array == null || array.length <= 1) {
+        return;
+    }
+
+    <span class="comment">// External entry point for Quick Sort</span>
+    quicksort(array, 0, array.length - 1);
+}</code></pre>
                     </div>
                 </div>
             </div>

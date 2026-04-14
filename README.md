@@ -3,6 +3,10 @@
 > An eye-friendly Obsidian theme preset — warm vellum tones, watercolor-style accents, and a comfortable long-form reading experience.
 >
 > 一套护眼的 Obsidian 主题预设——暖调羊皮纸层次、水彩化强调色，以及适合长时阅读的界面体验。
+>
+> This project prioritizes the best possible visual result over font-install convenience. Some fonts may need to be searched for, downloaded, and installed manually.
+>
+> 本项目优先追求尽可能极致的视觉效果，而不是字体安装的便利性。部分字体可能需要你自行搜索、下载并手动安装。
 
 ---
 
@@ -84,13 +88,13 @@
 
 This theme uses several fonts. Some of them are **not bundled with macOS** and should be installed manually through Font Book.
 
-For **Option 1: Apprentice**, `QiushuiShotai` must be installed as a **system font**. The snippet references it via `local("QiushuiShotai")`; it is not loaded from a local `.ttf` file inside the vault. For the intended Latin look, also install `Crimson Pro` or `Crimson Text`; otherwise Apprentice falls back to `Iowan Old Style` / `Constantia` / `Palatino`. If you want the current article-title look, also install `Hiragino Sans GB` so inline titles can switch to that display face.
+For **Option 1: Apprentice**, `QiushuiShotai` must be installed as a **system font**. The snippet references it via `local("QiushuiShotai")`; it is not loaded from a local `.ttf` file inside the vault. For the intended Latin text look, also install `Crimson Pro` or `Crimson Text`; otherwise Apprentice falls back to `Iowan Old Style` / `Constantia` / `Palatino`. For the current code-area design, install `Operator Mono` so the snippet can resolve `Operator Mono Book` / `Operator Mono Book Italic`; otherwise Apprentice falls back to `Menlo` / `Consolas`. If you want the current article-title look, also install `Hiragino Sans GB` so inline titles can switch to that display face.
 
 For **Option 3: Feuilleton**, install `HYCuFangSongJ` as a **system font** if you want the intended CJK body-text look. The snippet matches the local family / display / PostScript names exposed by Font Book rather than loading a local `.ttf` from the vault.
 
 本主题会使用若干字体，其中一部分 **macOS 不自带**，需要通过 Font Book 手动安装。
 
-对于 **Option 1: Apprentice**，`QiushuiShotai` 必须安装为**系统字体**。对应 snippet 通过 `local("QiushuiShotai")` 调用它，而不是从 vault 内部的 `.ttf` 文件直接加载。如果你想得到当前推荐的西文气质，也建议安装 `Crimson Pro` 或 `Crimson Text`；否则 Apprentice 会回退到 `Iowan Old Style` / `Constantia` / `Palatino`。如果你想得到当前这版文章标题效果，也请安装 `Hiragino Sans GB`，让 inline title 能切换到这颗展示字体。
+对于 **Option 1: Apprentice**，`QiushuiShotai` 必须安装为**系统字体**。对应 snippet 通过 `local("QiushuiShotai")` 调用它，而不是从 vault 内部的 `.ttf` 文件直接加载。如果你想得到当前推荐的西文气质，也建议安装 `Crimson Pro` 或 `Crimson Text`；否则 Apprentice 会回退到 `Iowan Old Style` / `Constantia` / `Palatino`。如果你想得到当前这版代码区效果，也请安装 `Operator Mono`，让 snippet 能命中 `Operator Mono Book` / `Operator Mono Book Italic`；否则 Apprentice 会回退到 `Menlo` / `Consolas`。如果你想得到当前这版文章标题效果，也请安装 `Hiragino Sans GB`，让 inline title 能切换到这颗展示字体。
 
 对于 **Option 3: Feuilleton**，如果你想得到当前这版预期中的中文正文气质，请将 `HYCuFangSongJ` 安装为**系统字体**。对应 snippet 会匹配 Font Book 暴露出的本地 family / display / PostScript 名称，而不是从 vault 内的 `.ttf` 直接加载。
 
@@ -100,7 +104,8 @@ For **Option 3: Feuilleton**, install `HYCuFangSongJ` as a **system font** if yo
 
 | Font | Current use | Download |
 |---|---|---|
-| **IBM Plex Mono** | Code font across all presets | [Google Fonts](https://fonts.google.com/specimen/IBM+Plex+Mono) |
+| `Operator Mono` | Apprentice preferred code font (`Operator Mono Book` / Book Italic) | Verify local licensing / installation |
+| **IBM Plex Mono** | Codex / Feuilleton code font | [Google Fonts](https://fonts.google.com/specimen/IBM+Plex+Mono) |
 | `Crimson Pro`, `Crimson Text` | Apprentice primary Latin text | [Google Fonts](https://fonts.google.com/specimen/Crimson+Pro) |
 | `QiushuiShotai` | Apprentice primary CJK source | Check the font author's release channel |
 | `Hiragino Sans GB` | Apprentice inline-title font | Verify local licensing / installation |
@@ -109,7 +114,8 @@ For **Option 3: Feuilleton**, install `HYCuFangSongJ` as a **system font** if yo
 
 | 字体 | 当前用途 | 下载地址 |
 |---|---|---|
-| **IBM Plex Mono** | 三套方案共用代码字体 | [Google Fonts](https://fonts.google.com/specimen/IBM+Plex+Mono) |
+| `Operator Mono` | Apprentice 首选代码字体（`Operator Mono Book` / Book Italic） | 请根据本地授权与安装情况确认 |
+| **IBM Plex Mono** | Codex / Feuilleton 代码字体 | [Google Fonts](https://fonts.google.com/specimen/IBM+Plex+Mono) |
 | `Crimson Pro`, `Crimson Text` | Apprentice 主西文字体 | [Google Fonts](https://fonts.google.com/specimen/Crimson+Pro) |
 | `QiushuiShotai` | Apprentice 主 CJK 字体来源 | 详见字体作者发布渠道 |
 | `Hiragino Sans GB` | Apprentice 文章标题字体 | 请根据本地授权与安装情况确认 |
@@ -123,6 +129,7 @@ For **Option 3: Feuilleton**, install `HYCuFangSongJ` as a **system font** if yo
 | Font | Current use | Notes |
 |---|---|---|
 | `Iowan Old Style`, `Palatino`, `Palatino Linotype` | Apprentice Latin fallback | Built into macOS / commonly available locally |
+| `Menlo` | Apprentice code fallback | Built into macOS |
 | `STKaiti`, `Kaiti SC`, `KaiTi` | Apprentice CJK fallback | Depends on system environment |
 | `Hiragino Sans GB` | Apprentice inline-title family | Verify local installation |
 | `Charter`, `Bitstream Charter` | Codex Latin text | Depends on system environment; verify locally |
@@ -133,6 +140,7 @@ For **Option 3: Feuilleton**, install `HYCuFangSongJ` as a **system font** if yo
 | 字体 | 当前用途 | 备注 |
 |---|---|---|
 | `Iowan Old Style`, `Palatino`, `Palatino Linotype` | Apprentice 西文后备字体 | macOS 原生内置 / 本地常见可用 |
+| `Menlo` | Apprentice 代码后备字体 | macOS 原生内置 |
 | `STKaiti`, `Kaiti SC`, `KaiTi` | Apprentice CJK 后备字体 | 取决于系统环境 |
 | `Hiragino Sans GB` | Apprentice 文章标题字体族 | 建议本地确认 |
 | `Charter`, `Bitstream Charter` | Codex 西文正文 | 取决于系统环境，建议本地确认 |
@@ -159,13 +167,13 @@ These demo pages do **not** load web fonts; they rely entirely on locally instal
 #### 为什么这一步是必需的
 
 1. **Font routing and font overrides** — The snippet injects the actual font stack and local title font behavior for each preset. At the moment, **Option 1: Apprentice and Option 3: Feuilleton explicitly implement CJK font isolation via `@font-face` + `unicode-range`**; Option 2: Codex still relies on a normal font stack.
-2. **Preset-specific typography tuning** — The snippet controls line height, letter spacing, inline title sizing, and code-density adjustments. Not every preset uses the same microtypography behavior.
+2. **Preset-specific typography tuning** — The snippet controls line height, letter spacing, inline title sizing, and code-area treatment. Not every preset uses the same microtypography behavior.
 3. **Shared reading-surface language** — The snippet also applies the shared article panel, deeper code-block surface, quiet dividers, and lightly strengthened table structure. The light-mode palette itself is provided by the imported preset JSON.
 
 In short: **the preset controls palette, heading weights, layout values, and rainbow behavior; the snippet controls font overrides, local typography behavior, and reading-surface layering.**
 
 1. **字体分流与字体覆盖** —— snippet 会注入各方案真实使用的字体栈，以及局部标题字体行为。目前，**Option 1: Apprentice 与 Option 3: Feuilleton 都明确通过 `@font-face` + `unicode-range` 实现了 CJK 语种隔离**；Option 2: Codex 仍然依赖普通 font stack。
-2. **方案级排版微调** —— snippet 负责控制正文行高、字距、inline title 尺寸，以及代码区密度调整。不同方案的微排版行为并不相同。
+2. **方案级排版微调** —— snippet 负责控制正文行高、字距、inline title 尺寸，以及代码区处理方式。不同方案的微排版行为并不相同。
 3. **共享阅读界面语言** —— snippet 同时应用共享的文章 panel、更深一层的 code block 表面、安静的分割线，以及轻度强化的表格结构。浅色模式 palette 本身由导入的 preset JSON 提供。
 
 一句话概括：**preset 决定 palette、标题字重、布局参数与 rainbow 行为；snippet 决定字体覆盖、局部排版行为与阅读界面层次。**
