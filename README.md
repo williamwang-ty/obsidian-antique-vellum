@@ -84,13 +84,13 @@
 
 This theme uses several fonts. Some of them are **not bundled with macOS** and should be installed manually through Font Book.
 
-For **Option 1: Apprentice**, `QiushuiShotai` must be installed as a **system font**. The snippet references it via `local("QiushuiShotai")`; it is not loaded from a local `.ttf` file inside the vault. If you want the current article-title look, also install `Hiragino Sans GB` so inline titles can switch to that display face.
+For **Option 1: Apprentice**, `QiushuiShotai` must be installed as a **system font**. The snippet references it via `local("QiushuiShotai")`; it is not loaded from a local `.ttf` file inside the vault. For the intended Latin look, also install `Crimson Pro` or `Crimson Text`; otherwise Apprentice falls back to `Iowan Old Style` / `Constantia` / `Palatino`. If you want the current article-title look, also install `Hiragino Sans GB` so inline titles can switch to that display face.
 
 For **Option 3: Feuilleton**, install `HYCuFangSongJ` as a **system font** if you want the intended CJK body-text look. The snippet matches the local family / display / PostScript names exposed by Font Book rather than loading a local `.ttf` from the vault.
 
 本主题会使用若干字体，其中一部分 **macOS 不自带**，需要通过 Font Book 手动安装。
 
-对于 **Option 1: Apprentice**，`QiushuiShotai` 必须安装为**系统字体**。对应 snippet 通过 `local("QiushuiShotai")` 调用它，而不是从 vault 内部的 `.ttf` 文件直接加载。如果你想得到当前这版文章标题效果，也请安装 `Hiragino Sans GB`，让 inline title 能切换到这颗展示字体。
+对于 **Option 1: Apprentice**，`QiushuiShotai` 必须安装为**系统字体**。对应 snippet 通过 `local("QiushuiShotai")` 调用它，而不是从 vault 内部的 `.ttf` 文件直接加载。如果你想得到当前推荐的西文气质，也建议安装 `Crimson Pro` 或 `Crimson Text`；否则 Apprentice 会回退到 `Iowan Old Style` / `Constantia` / `Palatino`。如果你想得到当前这版文章标题效果，也请安装 `Hiragino Sans GB`，让 inline title 能切换到这颗展示字体。
 
 对于 **Option 3: Feuilleton**，如果你想得到当前这版预期中的中文正文气质，请将 `HYCuFangSongJ` 安装为**系统字体**。对应 snippet 会匹配 Font Book 暴露出的本地 family / display / PostScript 名称，而不是从 vault 内的 `.ttf` 直接加载。
 
@@ -101,16 +101,18 @@ For **Option 3: Feuilleton**, install `HYCuFangSongJ` as a **system font** if yo
 | Font | Current use | Download |
 |---|---|---|
 | **IBM Plex Mono** | Code font across all presets | [Google Fonts](https://fonts.google.com/specimen/IBM+Plex+Mono) |
-| `QiushuiShotai` | Apprentice primary CJK source |
-| `Hiragino Sans GB` | Apprentice inline-title font |
+| `Crimson Pro`, `Crimson Text` | Apprentice primary Latin text | [Google Fonts](https://fonts.google.com/specimen/Crimson+Pro) |
+| `QiushuiShotai` | Apprentice primary CJK source | Check the font author's release channel |
+| `Hiragino Sans GB` | Apprentice inline-title font | Verify local licensing / installation |
 | `HYCuFangSongJ` | Feuilleton primary CJK source | Check the font author's release channel |
 | `Noto Serif SC`, `Source Han Serif SC` | Codex CJK text stack; Feuilleton CJK fallback | [Google Fonts](https://fonts.google.com/noto/specimen/Noto+Serif+SC) |
 
 | 字体 | 当前用途 | 下载地址 |
 |---|---|---|
 | **IBM Plex Mono** | 三套方案共用代码字体 | [Google Fonts](https://fonts.google.com/specimen/IBM+Plex+Mono) |
+| `Crimson Pro`, `Crimson Text` | Apprentice 主西文字体 | [Google Fonts](https://fonts.google.com/specimen/Crimson+Pro) |
 | `QiushuiShotai` | Apprentice 主 CJK 字体来源 | 详见字体作者发布渠道 |
-| `Hiragino Sans GB` | Apprentice 文章标题字体 | 详见字体作者发布渠道 |
+| `Hiragino Sans GB` | Apprentice 文章标题字体 | 请根据本地授权与安装情况确认 |
 | `HYCuFangSongJ` | Feuilleton 主 CJK 字体来源 | 详见字体作者发布渠道 |
 | `Noto Serif SC`, `Source Han Serif SC` | Codex 中文正文字体栈；Feuilleton 中文后备字体 | [Google Fonts](https://fonts.google.com/noto/specimen/Noto+Serif+SC) |
 
@@ -120,7 +122,7 @@ For **Option 3: Feuilleton**, install `HYCuFangSongJ` as a **system font** if yo
 
 | Font | Current use | Notes |
 |---|---|---|
-| `Athelas`, `Palatino` | Apprentice Latin text | Built into macOS |
+| `Iowan Old Style`, `Palatino`, `Palatino Linotype` | Apprentice Latin fallback | Built into macOS / commonly available locally |
 | `STKaiti`, `Kaiti SC`, `KaiTi` | Apprentice CJK fallback | Depends on system environment |
 | `Hiragino Sans GB` | Apprentice inline-title family | Verify local installation |
 | `Charter`, `Bitstream Charter` | Codex Latin text | Depends on system environment; verify locally |
@@ -130,7 +132,7 @@ For **Option 3: Feuilleton**, install `HYCuFangSongJ` as a **system font** if yo
 
 | 字体 | 当前用途 | 备注 |
 |---|---|---|
-| `Athelas`, `Palatino` | Apprentice 西文正文 | macOS 原生内置 |
+| `Iowan Old Style`, `Palatino`, `Palatino Linotype` | Apprentice 西文后备字体 | macOS 原生内置 / 本地常见可用 |
 | `STKaiti`, `Kaiti SC`, `KaiTi` | Apprentice CJK 后备字体 | 取决于系统环境 |
 | `Hiragino Sans GB` | Apprentice 文章标题字体族 | 建议本地确认 |
 | `Charter`, `Bitstream Charter` | Codex 西文正文 | 取决于系统环境，建议本地确认 |

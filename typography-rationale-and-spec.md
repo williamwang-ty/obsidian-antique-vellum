@@ -58,13 +58,13 @@ Users working under sustained learning pressure who want a note space that feels
 
 #### 当前字体栈
 
-- **Body / editor font:** `"QiushuiCJK", "KaitiCJK", "Athelas", "Palatino", "Palatino Linotype", serif`
+- **Body / editor font:** `"QiushuiCJK", "KaitiCJK", "Crimson Pro", "Crimson Text", "Iowan Old Style", "Constantia", "Palatino", "Palatino Linotype", serif`
 - **Code font:** `"IBM Plex Mono", var(--font-monospace), monospace`
-- **Inline title font:** `"HiraginoSansGBTitle", "Athelas", "Palatino", "Palatino Linotype", serif`
+- **Inline title font:** `"HiraginoSansGBTitle", "Crimson Pro", "Crimson Text", "Iowan Old Style", "Constantia", "Palatino", "Palatino Linotype", serif`
 
-- **正文 / 编辑器字体：** `"QiushuiCJK", "KaitiCJK", "Athelas", "Palatino", "Palatino Linotype", serif`
+- **正文 / 编辑器字体：** `"QiushuiCJK", "KaitiCJK", "Crimson Pro", "Crimson Text", "Iowan Old Style", "Constantia", "Palatino", "Palatino Linotype", serif`
 - **代码字体：** `"IBM Plex Mono", var(--font-monospace), monospace`
-- **Inline Title 字体：** `"HiraginoSansGBTitle", "Athelas", "Palatino", "Palatino Linotype", serif`
+- **Inline Title 字体：** `"HiraginoSansGBTitle", "Crimson Pro", "Crimson Text", "Iowan Old Style", "Constantia", "Palatino", "Palatino Linotype", serif`
 
 #### Current implemented behavior
 
@@ -73,7 +73,7 @@ Users working under sustained learning pressure who want a note space that feels
 - Uses `@font-face` to define three proxy fonts: `QiushuiCJK`, `KaitiCJK`, and `HiraginoSansGBTitle`
 - Body line height: `1.65`
 - Body letter spacing: `0.02em`
-- Additional body `word-spacing: 0.05em`
+- No extra body `word-spacing`
 - Body / list / table text scaled to `1.1x`
 - Inline title scaled to `1.30 × H1`
 - Code blocks use tighter editor-like metrics:
@@ -85,7 +85,7 @@ Users working under sustained learning pressure who want a note space that feels
 - 通过 `@font-face` 定义了三个代理字体：`QiushuiCJK`、`KaitiCJK`、`HiraginoSansGBTitle`
 - 正文行高：`1.65`
 - 正文字距：`0.02em`
-- 额外正文 `word-spacing: 0.05em`
+- 不再额外设置正文 `word-spacing`
 - 正文 / 列表 / 表格文字放大到 `1.1x`
 - Inline Title 放大为 `1.30 × H1`
 - 代码块使用更接近编辑器的紧凑参数：
@@ -94,6 +94,14 @@ Users working under sustained learning pressure who want a note space that feels
   - `word-spacing: 0`
   - `font-size: 0.9 × base`
 
+#### Note
+
+#### 说明
+
+Apprentice is tuned primarily for CJK reading. It keeps body `letter-spacing: 0.02em` for Chinese breathing room and removes extra `word-spacing` so English does not open up too much. If your notes are mainly English, reduce or remove that body `letter-spacing`.
+
+Apprentice 目前以中文阅读为优先。正文保留 `letter-spacing: 0.02em` 以维持中文呼吸感，并移除了额外 `word-spacing` 以避免英文过松。若内容以英文为主，可适当减小或移除该 `letter-spacing`。
+
 #### What defines this preset in practice
 
 #### 这个方案在当前实现中的核心特征
@@ -101,12 +109,14 @@ Users working under sustained learning pressure who want a note space that feels
 In the current repository, Apprentice is defined less by an abstract “manuscript feeling” and more by three concrete implementation choices tied directly to the learning scenario:
 
 - Qiushui-based CJK routing keeps the body text gentle while preserving a clean and sharp textbook quality, avoiding a childish tone
+- a Crimson-centered Latin stack keeps English warm, clear, and slightly restrained, so mixed-language text feels intimate without becoming overly sweet or mechanically bookish
 - `Hiragino Sans GB` gives titles enough authority to hold the page without the heavier pressure of Song / Ming styles
 - larger body scaling and looser spacing create a calmer, more breathable rhythm for sustained study
 
 在当前仓库中，Apprentice 与其说是靠抽象的“手稿感”成立，不如说是由三项直接服务学习场景的实现决定：
 
 - 通过秋水书体作为主 CJK 路由，让正文既亲切柔和，又保持干净锐利、不过分幼态
+- 通过以 `Crimson Pro / Crimson Text` 为核心的西文字体栈，让英文保留手稿温度，同时维持清秀、克制、不过度甜美也不过度印刷化的气质
 - 通过 `Hiragino Sans GB` 为标题建立足够的压阵力，避免今楷偏软、宋体偏重的问题
 - 通过更大的正文倍率与更松的字距制造更安静、更有呼吸感的学习节奏
 
@@ -385,7 +395,7 @@ Example:
 This means:
 
 - CJK characters are routed to those proxy fonts
-- Latin characters continue down to `Athelas` / `Palatino`
+- Latin characters continue down to the Crimson-centered serif stack: `Crimson Pro` / `Crimson Text` / `Iowan Old Style` / `Constantia` / `Palatino`
 - the Chinese portion of inline titles can be routed separately to `HiraginoSansGBTitle`
 
 That also means something important about the current implementation:
@@ -397,7 +407,7 @@ In Feuilleton, this is used to keep Latin text on `Georgia` while routing CJK bo
 这意味着：
 
 - CJK 字符会被路由到这些代理字体
-- Latin 字符会继续落到 `Athelas` / `Palatino`
+- Latin 字符会继续落到以 `Crimson Pro` / `Crimson Text` / `Iowan Old Style` / `Constantia` / `Palatino` 为核心的 serif 栈
 - inline title 的中文部分还能单独落到 `HiraginoSansGBTitle`
 
 这也说明当前实现中的一个关键事实：

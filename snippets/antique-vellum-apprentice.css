@@ -28,9 +28,9 @@
 
 /* ---- Typography Metrics & Global Font Variables ---- */
 body {
-    --font-text-theme: "QiushuiCJK", "KaitiCJK", "Athelas", "Palatino", "Palatino Linotype", serif !important;
-    --font-text: "QiushuiCJK", "KaitiCJK", "Athelas", "Palatino", "Palatino Linotype", serif !important;
-    --font-editor: "QiushuiCJK", "KaitiCJK", "Athelas", "Palatino", "Palatino Linotype", serif !important;
+    --font-text-theme: "QiushuiCJK", "KaitiCJK", "Crimson Pro", "Crimson Text", "Iowan Old Style", "Constantia", "Palatino", "Palatino Linotype", serif !important;
+    --font-text: "QiushuiCJK", "KaitiCJK", "Crimson Pro", "Crimson Text", "Iowan Old Style", "Constantia", "Palatino", "Palatino Linotype", serif !important;
+    --font-editor: "QiushuiCJK", "KaitiCJK", "Crimson Pro", "Crimson Text", "Iowan Old Style", "Constantia", "Palatino", "Palatino Linotype", serif !important;
 
     --line-height-normal: 1.65;
     --editor-line-height: 1.65;
@@ -69,7 +69,6 @@ body .markdown-rendered li,
 body .markdown-rendered table {
     font-size: calc(var(--font-text-size, 16px) * 1.1) !important;
     letter-spacing: 0.02em !important;
-    word-spacing: 0.05em !important;
     -webkit-font-smoothing: antialiased !important;
 }
 
@@ -78,7 +77,7 @@ body .workspace-leaf .markdown-preview-view .inline-title,
 body .workspace-leaf .markdown-rendered .inline-title,
 body .workspace-leaf .markdown-source-view .inline-title,
 .inline-title {
-    font-family: "HiraginoSansGBTitle", "Athelas", "Palatino", "Palatino Linotype", serif !important;
+    font-family: "HiraginoSansGBTitle", "Crimson Pro", "Crimson Text", "Iowan Old Style", "Constantia", "Palatino", "Palatino Linotype", serif !important;
     font-size: calc(var(--h1-size, 2em) * 1.30) !important;
     line-height: 1.27 !important;
     letter-spacing: 0.012em !important;
