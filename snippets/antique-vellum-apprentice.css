@@ -1,6 +1,6 @@
 /*
  * ============================================================
- *  Antique Vellum — Option 1: Scriptorium 孤高名士
+ *  Antique Vellum — Option 1: Apprentice 修艺之士
  *  Typography Metrics & Font Isolation Layer
  * ============================================================
  */
@@ -99,8 +99,10 @@ body .workspace-leaf .markdown-source-view .inline-title,
 .markdown-source-view.mod-cm6 .HyperMD-codeblock,
 .markdown-rendered pre {
     background: var(--av-code-panel-bg) !important;
-    line-height: 1.3 !important; /* Tighten line height toward coding-editor density */
-    font-size: var(--code-size, calc(var(--font-text-size, 16px) * 0.9)) !important; /* Reset to precise 90% of base font, ignoring Scriptorium/Feuilleton magnifications */
+    line-height: 1.3 !important;
+    /* Tighten line height toward coding-editor density */
+    font-size: var(--code-size, calc(var(--font-text-size, 16px) * 0.9)) !important;
+    /* Reset to precise 90% of base font, ignoring Apprentice/Feuilleton magnifications */
 }
 
 .markdown-rendered pre code {
@@ -162,7 +164,7 @@ body .workspace-leaf .markdown-source-view .inline-title,
     border: 1px solid var(--av-table-line) !important;
 }
 
-.markdown-rendered tr + tr td,
-.markdown-source-view.mod-cm6 .cm-table-widget tr + tr td {
+.markdown-rendered tr+tr td,
+.markdown-source-view.mod-cm6 .cm-table-widget tr+tr td {
     border-top: 1px solid var(--av-table-line) !important;
 }

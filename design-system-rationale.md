@@ -108,7 +108,7 @@ All three CSS snippets share the same reading-surface treatment, even though eac
 
 This shared layer is implemented in:
 
-- [snippets/antique-vellum-scriptorium.css](snippets/antique-vellum-scriptorium.css)
+- [snippets/antique-vellum-apprentice.css](snippets/antique-vellum-apprentice.css)
 - [snippets/antique-vellum-codex.css](snippets/antique-vellum-codex.css)
 - [snippets/antique-vellum-feuilleton.css](snippets/antique-vellum-feuilleton.css)
 
@@ -130,7 +130,7 @@ The current presets share the same heading weights and scale settings through th
 
 These values are currently set in:
 
-- [snippets/antique-vellum-scriptorium.json](snippets/antique-vellum-scriptorium.json)
+- [snippets/antique-vellum-apprentice.json](snippets/antique-vellum-apprentice.json)
 - [snippets/antique-vellum-codex.json](snippets/antique-vellum-codex.json)
 - [snippets/antique-vellum-feuilleton.json](snippets/antique-vellum-feuilleton.json)
 
@@ -273,7 +273,7 @@ For the current typography details, see [typography-rationale-and-spec.md](typog
 
 这一共享层由以下文件实现：
 
-- [snippets/antique-vellum-scriptorium.css](snippets/antique-vellum-scriptorium.css)
+- [snippets/antique-vellum-apprentice.css](snippets/antique-vellum-apprentice.css)
 - [snippets/antique-vellum-codex.css](snippets/antique-vellum-codex.css)
 - [snippets/antique-vellum-feuilleton.css](snippets/antique-vellum-feuilleton.css)
 
@@ -295,7 +295,7 @@ For the current typography details, see [typography-rationale-and-spec.md](typog
 
 这些值目前写在：
 
-- [snippets/antique-vellum-scriptorium.json](snippets/antique-vellum-scriptorium.json)
+- [snippets/antique-vellum-apprentice.json](snippets/antique-vellum-apprentice.json)
 - [snippets/antique-vellum-codex.json](snippets/antique-vellum-codex.json)
 - [snippets/antique-vellum-feuilleton.json](snippets/antique-vellum-feuilleton.json)
 

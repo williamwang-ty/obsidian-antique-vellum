@@ -44,15 +44,15 @@ In practice, that goal is delivered through three layers:
 
 ## 1. 三套当前交付的排版方案
 
-### 1.1 Scriptorium
+### 1.1 Apprentice
 
-### 1.1 Scriptorium 孤高名士
+### 1.1 Apprentice 修艺之士
 
-**Best for**  
-Users who want their notes to feel closer to private manuscripts, marginalia, and research notebooks. Among the three presets, this one emphasizes handwriting texture the most.
+**Best for**
+Users working under sustained learning pressure who want a note space that feels gentle and supportive without becoming childish. It is well suited to long-term study notes, skill-building, and knowledge construction.
 
-**适合场景**  
-适合希望笔记更接近私人手稿、边注本与研究札记的人。三套方案里，它最强调书写感。
+**适合场景**
+适合处于高压学习状态、希望页面能以亲切柔和的质感承接思绪的人。它适合作为长期学习笔记、技能打磨与知识构建空间，是陪伴使用者日复一日修炼技艺的学徒案台。
 
 #### Current font stack
 
@@ -98,25 +98,25 @@ Users who want their notes to feel closer to private manuscripts, marginalia, an
 
 #### 这个方案在当前实现中的核心特征
 
-In the current repository, Scriptorium is defined less by an abstract “manuscript feeling” and more by three concrete implementation choices:
+In the current repository, Apprentice is defined less by an abstract “manuscript feeling” and more by three concrete implementation choices tied directly to the learning scenario:
 
-- CJK font proxies preserve Latin / CJK role separation
-- larger body scaling and looser spacing create a more breathable page rhythm
-- a separate inline-title font opens clear title hierarchy
+- Qiushui-based CJK routing keeps the body text gentle while preserving a clean and sharp textbook quality, avoiding a childish tone
+- `Hiragino Sans GB` gives titles enough authority to hold the page without the heavier pressure of Song / Ming styles
+- larger body scaling and looser spacing create a calmer, more breathable rhythm for sustained study
 
-在当前仓库中，Scriptorium 与其说是靠抽象的“手稿感”成立，不如说是由三项具体实现决定：
+在当前仓库中，Apprentice 与其说是靠抽象的“手稿感”成立，不如说是由三项直接服务学习场景的实现决定：
 
-- 通过 CJK 代理字体保持 Latin / CJK 分工
-- 通过更大的正文倍率与更松的字距制造更有呼吸感的页面节奏
-- 通过单独的 inline title 字体拉开标题层次
+- 通过秋水书体作为主 CJK 路由，让正文既亲切柔和，又保持干净锐利、不过分幼态
+- 通过 `Hiragino Sans GB` 为标题建立足够的压阵力，避免今楷偏软、宋体偏重的问题
+- 通过更大的正文倍率与更松的字距制造更安静、更有呼吸感的学习节奏
 
 Implementation files:
-- [snippets/antique-vellum-scriptorium.css](snippets/antique-vellum-scriptorium.css)
-- [snippets/antique-vellum-scriptorium.json](snippets/antique-vellum-scriptorium.json)
+- [snippets/antique-vellum-apprentice.css](snippets/antique-vellum-apprentice.css)
+- [snippets/antique-vellum-apprentice.json](snippets/antique-vellum-apprentice.json)
 
 实现文件：
-- [snippets/antique-vellum-scriptorium.css](snippets/antique-vellum-scriptorium.css)
-- [snippets/antique-vellum-scriptorium.json](snippets/antique-vellum-scriptorium.json)
+- [snippets/antique-vellum-apprentice.css](snippets/antique-vellum-apprentice.css)
+- [snippets/antique-vellum-apprentice.json](snippets/antique-vellum-apprentice.json)
 
 ---
 
@@ -148,13 +148,13 @@ Long-form reading, literature management, research notes, and dense knowledge ar
 - Body letter spacing: `0.01em`
 - No additional body text scaling
 - Inline title scaled to `1.3 × H1`
-- Code blocks use `IBM Plex Mono` without the extra compressed code metrics seen in Scriptorium
+- Code blocks use `IBM Plex Mono` without the extra compressed code metrics seen in Apprentice
 
 - 正文行高：`1.6`
 - 正文字距：`0.01em`
 - 没有额外的正文字号放大
 - Inline Title 放大为 `1.3 × H1`
-- 代码块使用 `IBM Plex Mono`，但没有像 Scriptorium 那样额外压缩 code metrics
+- 代码块使用 `IBM Plex Mono`，但没有像 Apprentice 那样额外压缩 code metrics
 
 #### What defines this preset in practice
 
@@ -331,7 +331,7 @@ For the broader color and surface system, see [design-system-rationale.md](desig
 ## 3. 为什么需要字体隔离层
 
 In this project, the font-isolation layer is **not** a universal mechanism used by all three presets.
-At the moment, it is used by **Scriptorium** and **Feuilleton**, while **Codex** still uses a normal stack.
+At the moment, it is used by **Apprentice** and **Feuilleton**, while **Codex** still uses a normal stack.
 
 The reason is simple: many CJK fonts ship with their own Latin glyphs.
 When the browser resolves `font-family`, it matches character by character. If the current font can render a character, it will stop there instead of continuing down the stack.
@@ -339,7 +339,7 @@ When the browser resolves `font-family`, it matches character by character. If t
 That creates a common problem: even if Latin text is supposed to use a Latin serif, a CJK font may silently take over if the earlier Latin font is unavailable.
 
 在当前项目里，字体隔离层**不是**三套方案都统一启用的机制。
-目前使用它的是 **Scriptorium** 和 **Feuilleton**，而 **Codex** 仍然使用普通字体栈。
+目前使用它的是 **Apprentice** 和 **Feuilleton**，而 **Codex** 仍然使用普通字体栈。
 
 原因很直接：很多 CJK 字体本身自带拉丁字形。
 浏览器解析 `font-family` 时，会逐字符匹配；只要当前字体能渲染该字符，就不会继续往后找。
@@ -352,7 +352,7 @@ That creates a common problem: even if Latin text is supposed to use a Latin ser
 
 ## 4. 它在当前仓库中的实现方式
 
-In the current repository, the implemented solution lives in [snippets/antique-vellum-scriptorium.css](snippets/antique-vellum-scriptorium.css) and [snippets/antique-vellum-feuilleton.css](snippets/antique-vellum-feuilleton.css).
+In the current repository, the implemented solution lives in [snippets/antique-vellum-apprentice.css](snippets/antique-vellum-apprentice.css) and [snippets/antique-vellum-feuilleton.css](snippets/antique-vellum-feuilleton.css).
 
 They use `@font-face` + `unicode-range` to define CJK-only proxy fonts:
 
@@ -363,7 +363,7 @@ They use `@font-face` + `unicode-range` to define CJK-only proxy fonts:
 
 Example:
 
-在当前仓库里，已经落地的解决方案位于 [snippets/antique-vellum-scriptorium.css](snippets/antique-vellum-scriptorium.css) 与 [snippets/antique-vellum-feuilleton.css](snippets/antique-vellum-feuilleton.css)。
+在当前仓库里，已经落地的解决方案位于 [snippets/antique-vellum-apprentice.css](snippets/antique-vellum-apprentice.css) 与 [snippets/antique-vellum-feuilleton.css](snippets/antique-vellum-feuilleton.css)。
 
 它们通过 `@font-face` + `unicode-range` 定义仅负责 CJK 的代理字体：
 
@@ -389,7 +389,7 @@ This means:
 - the Chinese portion of inline titles can be routed separately to `HiraginoSansGBTitle`
 
 That also means something important about the current implementation:
-**Scriptorium and Feuilleton explicitly ship this `@font-face` + `unicode-range` layer.**
+**Apprentice and Feuilleton explicitly ship this `@font-face` + `unicode-range` layer.**
 Codex still relies on a normal font stack.
 
 In Feuilleton, this is used to keep Latin text on `Georgia` while routing CJK body text to `HYCuFangSongJ`.
@@ -401,7 +401,7 @@ In Feuilleton, this is used to keep Latin text on `Georgia` while routing CJK bo
 - inline title 的中文部分还能单独落到 `HiraginoSansGBTitle`
 
 这也说明当前实现中的一个关键事实：
-**Scriptorium 与 Feuilleton 都明确交付了这层 `@font-face` + `unicode-range` 机制。**
+**Apprentice 与 Feuilleton 都明确交付了这层 `@font-face` + `unicode-range` 机制。**
 Codex 目前仍然依赖普通 font stack。
 
 在 Feuilleton 中，这层机制用来让西文继续使用 `Georgia`，同时把中文正文路由到 `HYCuFangSongJ`。
@@ -416,7 +416,7 @@ Based on the repository as it exists now, explicit font-isolation and title-font
 
 | Preset | Current proxy-font coverage |
 |---|---|
-| Scriptorium | `QiushuiCJK`, `KaitiCJK`, `HiraginoSansGBTitle` |
+| Apprentice | `QiushuiCJK`, `KaitiCJK`, `HiraginoSansGBTitle` |
 | Codex | No dedicated `@font-face` proxy layer |
 | Feuilleton | `HYCuFangSongJCJK` |
 
@@ -424,7 +424,7 @@ Based on the repository as it exists now, explicit font-isolation and title-font
 
 | 方案 | 当前代理字体覆盖 |
 |---|---|
-| Scriptorium | `QiushuiCJK`, `KaitiCJK`, `HiraginoSansGBTitle` |
+| Apprentice | `QiushuiCJK`, `KaitiCJK`, `HiraginoSansGBTitle` |
 | Codex | 没有独立的 `@font-face` 代理层 |
 | Feuilleton | `HYCuFangSongJCJK` |
 
@@ -438,7 +438,7 @@ In the current repository, each typography preset is enabled as a **preset + mat
 
 1. Import the matching `.json` preset
 2. Enable the matching `.css` snippet
-3. If using Scriptorium, make sure `QiushuiShotai` is installed as a system font
+3. If using Apprentice, make sure `QiushuiShotai` is installed as a system font
 
 In the current implementation:
 
@@ -451,7 +451,7 @@ For the full installation workflow, see [README.md](README.md).
 
 1. 导入对应的 `.json` preset
 2. 启用对应的 `.css` snippet
-3. 如果使用 Scriptorium，确保 `QiushuiShotai` 已作为系统字体安装
+3. 如果使用 Apprentice，确保 `QiushuiShotai` 已作为系统字体安装
 
 在当前实现里：
 
