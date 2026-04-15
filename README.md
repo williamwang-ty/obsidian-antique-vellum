@@ -37,6 +37,20 @@
 | [demo/typography-demo-zh.html](demo/typography-demo-zh.html) | 适合中英混排 / 中文内容的排版演示页 |
 | [demo/typography-demo-en.html](demo/typography-demo-en.html) | 适合纯英文内容的排版演示页 |
 
+#### 效果截图
+
+| 文件 | 说明 |
+|---|---|
+| [demo/apprentice-cn.png](demo/apprentice-cn.png) | Apprentice：中文 / 中英混排效果截图 |
+| [demo/apprentice-code.png](demo/apprentice-code.png) | Apprentice：代码区效果截图 |
+| [demo/apprentice-en.png](demo/apprentice-en.png) | Apprentice：英文效果截图 |
+| [demo/codex-cn.png](demo/codex-cn.png) | Codex：中文 / 中英混排效果截图 |
+| [demo/codex-code.png](demo/codex-code.png) | Codex：代码区效果截图 |
+| [demo/codex-en.png](demo/codex-en.png) | Codex：英文效果截图 |
+| [demo/feuilleton-cn.png](demo/feuilleton-cn.png) | Feuilleton：中文 / 中英混排效果截图 |
+| [demo/feuilleton-code.png](demo/feuilleton-code.png) | Feuilleton：代码区效果截图 |
+| [demo/feuileton-en.png](demo/feuileton-en.png) | Feuilleton：英文效果截图 |
+
 ### 前置要求
 
 - [Obsidian](https://obsidian.md) v1.0+
@@ -92,7 +106,9 @@
 ##### 如何验证字体是否可用
 
 可以打开 [demo/typography-demo-zh.html](demo/typography-demo-zh.html) 来检查中英混排 / 中文内容，或打开 [demo/typography-demo-en.html](demo/typography-demo-en.html) 来检查纯英文内容。
+也可以结合上方效果截图对照当前渲染结果。
 这些演示页**不会**加载网络字体，而是完全依赖本地系统字体，因此能较准确地反映 Obsidian 中的真实渲染结果。
+如果 demo 页面与参考截图在字体气质、字宽、标题形态或代码区样式上差异很大，通常说明相关字体没有正常安装，当前渲染已经回退到后备字体。
 
 #### 第三步：启用对应的 CSS snippet
 
@@ -153,6 +169,20 @@ MIT
 | [demo/typography-demo-zh.html](demo/typography-demo-zh.html) | Typography demo for bilingual / Chinese-heavy content |
 | [demo/typography-demo-en.html](demo/typography-demo-en.html) | Typography demo for English-only content |
 
+#### Reference screenshots
+
+| File | Description |
+|---|---|
+| [demo/apprentice-cn.png](demo/apprentice-cn.png) | Apprentice: Chinese / bilingual rendering reference |
+| [demo/apprentice-code.png](demo/apprentice-code.png) | Apprentice: code-area rendering reference |
+| [demo/apprentice-en.png](demo/apprentice-en.png) | Apprentice: English rendering reference |
+| [demo/codex-cn.png](demo/codex-cn.png) | Codex: Chinese / bilingual rendering reference |
+| [demo/codex-code.png](demo/codex-code.png) | Codex: code-area rendering reference |
+| [demo/codex-en.png](demo/codex-en.png) | Codex: English rendering reference |
+| [demo/feuilleton-cn.png](demo/feuilleton-cn.png) | Feuilleton: Chinese / bilingual rendering reference |
+| [demo/feuilleton-code.png](demo/feuilleton-code.png) | Feuilleton: code-area rendering reference |
+| [demo/feuileton-en.png](demo/feuileton-en.png) | Feuilleton: English rendering reference |
+
 ### Prerequisites
 
 - [Obsidian](https://obsidian.md) v1.0+
@@ -208,7 +238,9 @@ For **Option 3: Feuilleton**, install `HYCuFangSongJ` as a **system font** if yo
 ##### How to verify font availability
 
 Open [demo/typography-demo-zh.html](demo/typography-demo-zh.html) for bilingual / Chinese-heavy content, or [demo/typography-demo-en.html](demo/typography-demo-en.html) for English-only content.
+You can also compare the current rendering against the reference screenshots above.
 These demo pages do **not** load web fonts; they rely entirely on locally installed system fonts, so they closely reflect the actual Obsidian rendering environment.
+If the demo pages look significantly different from the reference screenshots in font tone, glyph width, heading shapes, or code-area styling, the required fonts are usually not installed correctly and the rendering has fallen back to substitute fonts.
 
 #### Step 3: Enable the matching CSS snippet
 
