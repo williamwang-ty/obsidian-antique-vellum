@@ -76,7 +76,7 @@
             --vellum-code-bg: rgba(51, 45, 41, 0.07);
 
             /* Shell Fonts */
-            --font-mono: "IBM Plex Mono", "SFMono-Regular", "Menlo", monospace;
+            --font-mono: "Consolas", "Input Mono", "Berkeley Mono", "Menlo", monospace;
             --font-opt-1-code: "OperatorMonoBook", "Menlo", "Consolas", "KaitiCJK", "QiushuiCJK", monospace;
             --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             --font-display: "Didot", "Bodoni MT", "Times New Roman", serif;
@@ -85,8 +85,8 @@
             --font-opt-1: "QiushuiCJK", "KaitiCJK", "Crimson Pro", "Crimson Text", "Iowan Old Style", "Constantia", "Palatino", "Palatino Linotype", serif;
             --font-opt-1-title: "HiraginoSansGBTitle", "Crimson Pro", "Crimson Text", "Iowan Old Style", "Constantia", "Palatino", "Palatino Linotype", serif;
             --font-opt-2: "Charter", "Bitstream Charter", "Palatino", "Palatino Linotype", "NotoCJK", serif;
-            --font-opt-3: "Georgia", "HYCuFangSongJCJK", "NotoCJK", "Songti SC", "Source Han Serif SC", serif;
-            --font-opt-3-display: "Didot", "Bodoni MT", ui-serif, serif;
+            --font-opt-3: "EB Garamond", "Adobe Garamond Pro", "Garamond Premier Pro", "Baskerville", "Iowan Old Style", "Palatino", "Palatino Linotype", "HYCuFangSongJCJK", "NotoCJK", "Songti SC", "Source Han Serif SC", serif;
+            --font-opt-3-display: "Didot", "Bodoni MT", "HYCuFangSongJCJK", ui-serif, serif;
         }
 
         * {
@@ -580,7 +580,33 @@
         .theme-feuilleton .note-title-giant {
             font-family: var(--font-opt-3-display), var(--font-opt-3);
             font-size: calc(2rem * 1.3);
-            font-weight: bold;
+            font-weight: 400;
+            line-height: 1.25;
+        }
+
+        .theme-feuilleton .note-content :not(pre)>code {
+            font-family: var(--font-mono), "Kaiti SC", "STKaiti", "Kaiti TC", "HYCuFangSongJCJK", monospace;
+            background: rgba(51, 45, 41, 0.028);
+            color: inherit;
+            border: 1px solid rgba(51, 45, 41, 0.04);
+            border-radius: 2px;
+            font-size: 0.84em;
+            line-height: 1;
+            padding: 0.01em 0.18em;
+        }
+
+        .theme-feuilleton .note-content pre {
+            padding: 0.82em 1em;
+        }
+
+        .theme-feuilleton .note-content pre code {
+            font-family: var(--font-mono), "Kaiti SC", "STKaiti", "Kaiti TC", "HYCuFangSongJCJK", monospace;
+            font-size: 0.85em;
+            line-height: 1.32;
+            letter-spacing: 0;
+            word-spacing: 0;
+            font-weight: 400;
+            color: var(--vellum-ink);
         }
 
         /* Responsive Layout */
@@ -824,6 +850,15 @@
 
                         <p>To answer that question, one must stop reading time as a straight line and begin reading it
                             as an architecture of branching intervals, returns, and unrealized continuities.</p>
+
+                        <pre><code>public static <T extends Comparable<T>> void quicksort(T[] array) {
+    if (array == null || array.length <= 1) {
+        return;
+    }
+
+    <span class="comment">// External entry point for Quick Sort</span>
+    quicksort(array, 0, array.length - 1);
+}</code></pre>
                     </div>
                 </div>
             </div>
@@ -914,6 +949,15 @@
 
                         <p>To answer that question, one must stop reading time as a straight line and begin reading it
                             as an architecture of branching intervals, returns, and unrealized continuities.</p>
+
+                        <pre><code>public static <T extends Comparable<T>> void quicksort(T[] array) {
+    if (array == null || array.length <= 1) {
+        return;
+    }
+
+    <span class="comment">// External entry point for Quick Sort</span>
+    quicksort(array, 0, array.length - 1);
+}</code></pre>
                     </div>
                 </div>
             </div>

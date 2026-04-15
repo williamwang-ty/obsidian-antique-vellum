@@ -116,9 +116,10 @@ This shared layer is implemented in:
 
 ## 5. Spatial Pacing & Heading Scale
 
-The current presets share the same heading weights and scale settings through the imported AnuPpuccin preset JSON files.
+Apprentice and Codex share the same heading weights and scale settings through their imported AnuPpuccin preset JSON files.
+Feuilleton intentionally overrides heading weight to avoid faux-bold synthesis, and opens H1 leading to support multi-line uppercase display titles.
 
-### Shared heading settings
+### Apprentice & Codex heading settings
 
 - **H1:** weight `800`, line-height `1.15`
 - **H2:** weight `700`, size `1.8`
@@ -126,6 +127,16 @@ The current presets share the same heading weights and scale settings through th
 - **H4:** weight `600`
 - **H5:** weight `500`
 - **H6:** weight `500`, size `1.0`
+- **H1 divider:** disabled
+
+### Feuilleton heading settings
+
+- **H1:** weight `400`, line-height `1.25`
+- **H2:** weight `400`, size `1.8`
+- **H3:** weight `400`, size `1.45`
+- **H4:** weight `400`
+- **H5:** weight `400`
+- **H6:** weight `400`, size `1.0`
 - **H1 divider:** disabled
 
 These values are currently set in:
@@ -281,9 +292,9 @@ For the current typography details, see [typography-rationale-and-spec.md](typog
 
 ## 5. 空间律动与标题音阶
 
-当前三套预设通过导入的 AnuPpuccin preset JSON，共享同一组标题字重与字号参数。
+Apprentice 与 Codex 仍共享同一组标题字重与字号参数；Feuilleton 则为了避免仿宋伪粗体，并支持多行全大写展示标题，单独调整了标题字重与 H1 行高。
 
-### 当前共享的标题设定
+### Apprentice / Codex 当前标题设定
 
 - **H1：** 字重 `800`，行高 `1.15`
 - **H2：** 字重 `700`，字号 `1.8`
@@ -291,6 +302,16 @@ For the current typography details, see [typography-rationale-and-spec.md](typog
 - **H4：** 字重 `600`
 - **H5：** 字重 `500`
 - **H6：** 字重 `500`，字号 `1.0`
+- **H1 分割线：** 关闭
+
+### Feuilleton 当前标题设定
+
+- **H1：** 字重 `400`，行高 `1.25`
+- **H2：** 字重 `400`，字号 `1.8`
+- **H3：** 字重 `400`，字号 `1.45`
+- **H4：** 字重 `400`
+- **H5：** 字重 `400`
+- **H6：** 字重 `400`，字号 `1.0`
 - **H1 分割线：** 关闭
 
 这些值目前写在：

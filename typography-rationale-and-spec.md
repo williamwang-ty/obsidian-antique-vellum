@@ -214,7 +214,7 @@ Implementation files:
 
 ### 1.3 Feuilleton
 
-### 1.3 Feuilleton 杂志名利场
+### 1.3 Feuilleton 贵智专栏
 
 **Best for**  
 Opinionated notes, essay-like writing, and content that benefits from stronger title presence and column-like editorial tone.
@@ -226,13 +226,13 @@ Opinionated notes, essay-like writing, and content that benefits from stronger t
 
 #### 当前字体栈
 
-- **Body / editor font:** `"Georgia", "HYCuFangSongJCJK", "Noto Serif SC", "Songti SC", "Source Han Serif SC", serif`
-- **Code font:** `"IBM Plex Mono", var(--font-monospace), monospace`
-- **Inline title font:** `"Didot", "Bodoni MT", ui-serif, serif`
+- **Body / editor font:** `"EB Garamond", "Adobe Garamond Pro", "Garamond Premier Pro", "Baskerville", "Iowan Old Style", "Palatino", "Palatino Linotype", "HYCuFangSongJCJK", "Noto Serif SC", "Songti SC", "Source Han Serif SC", serif`
+- **Code font:** `"Consolas", "Input Mono", "Berkeley Mono", "Menlo", "Kaiti SC", "STKaiti", "Kaiti TC", "HYCuFangSongJCJK", monospace`
+- **Inline title font:** `"Didot", "Bodoni MT", "HYCuFangSongJCJK", ui-serif, serif`
 
-- **正文 / 编辑器字体：** `"Georgia", "HYCuFangSongJCJK", "Noto Serif SC", "Songti SC", "Source Han Serif SC", serif`
-- **代码字体：** `"IBM Plex Mono", var(--font-monospace), monospace`
-- **Inline Title 字体：** `"Didot", "Bodoni MT", ui-serif, serif`
+- **正文 / 编辑器字体：** `"EB Garamond", "Adobe Garamond Pro", "Garamond Premier Pro", "Baskerville", "Iowan Old Style", "Palatino", "Palatino Linotype", "HYCuFangSongJCJK", "Noto Serif SC", "Songti SC", "Source Han Serif SC", serif`
+- **代码字体：** `"Consolas", "Input Mono", "Berkeley Mono", "Menlo", "Kaiti SC", "STKaiti", "Kaiti TC", "HYCuFangSongJCJK", monospace`
+- **Inline Title 字体：** `"Didot", "Bodoni MT", "HYCuFangSongJCJK", ui-serif, serif`
 
 #### Current implemented behavior
 
@@ -242,24 +242,26 @@ Opinionated notes, essay-like writing, and content that benefits from stronger t
 - Body letter spacing: `0.012em`
 - Body text uses `font-weight: 400`
 - Body / list / table text scaled to `1.18x`
-- Feuilleton now uses a dedicated `@font-face` + `unicode-range` proxy so Latin text stays on `Georgia` while CJK text can route to `HYCuFangSongJ`
+- Feuilleton now uses a dedicated `@font-face` + `unicode-range` proxy so Latin text stays on `EB Garamond` while CJK text can route to `HYCuFangSongJ`
 - Inline title scaled to `1.3 × H1`
 - Inline title forces display serif styling with:
   - `text-transform: uppercase`
-  - `font-weight: bold`
-- Code blocks use `IBM Plex Mono` without extra code-density compression
+  - `font-weight: 400`
+  - `line-height: 1.25`
+- Code blocks now prioritize `Consolas` for a cooler, more controlled editorial voice, with `Input Mono` / `Berkeley Mono` behind it, while routing CJK inside code to `Kaiti SC` / `STKaiti` to avoid modern black-sans fallbacks
 - The current CSS **does not** enable `-webkit-text-stroke: 0.25px ...` for body text; instead, headings, bold text, code, and related elements are explicitly reset to `0px` stroke
 
 - 正文行高：`1.75`
 - 正文字距：`0.012em`
 - 正文使用 `font-weight: 400`
 - 正文 / 列表 / 表格文字放大到 `1.18x`
-- Feuilleton 现在通过专门的 `@font-face` + `unicode-range` 代理层，让西文继续使用 `Georgia`，同时让 CJK 文本可路由到 `HYCuFangSongJ`
+- Feuilleton 现在通过专门的 `@font-face` + `unicode-range` 代理层，让西文继续使用 `EB Garamond`，同时让 CJK 文本可路由到 `HYCuFangSongJ`
 - Inline Title 放大为 `1.3 × H1`
 - Inline Title 强制使用展示级 serif 样式，并启用：
   - `text-transform: uppercase`
-  - `font-weight: bold`
-- 代码块使用 `IBM Plex Mono`，但没有额外压缩代码密度
+  - `font-weight: 400`
+  - `line-height: 1.25`
+- 代码块现在优先使用更冷静、更稳的 `Consolas`，并以 `Input Mono` / `Berkeley Mono` 作为后续回退，同时将代码内 CJK 路由到 `Kaiti SC` / `STKaiti`，避免出现现代黑体 fallback
 - 当前 CSS **没有**对正文启用 `-webkit-text-stroke: 0.25px ...`；相反，标题、粗体、代码及相关元素都被显式重置为 `0px` 描边
 
 #### What defines this preset in practice
@@ -270,7 +272,7 @@ Feuilleton currently gets its editorial / magazine-like tone mainly from:
 
 - larger body scaling and looser line height
 - Didot / Bodoni-style inline titles
-- uppercase and bold inline-title handling
+- uppercase and regular-weight inline-title handling
 
 It is **not** currently defined by body-text stroke.
 
@@ -278,7 +280,7 @@ Feuilleton 当前的专栏 / 杂志感，主要来自：
 
 - 更大的正文倍率与更松的行高
 - Didot / Bodoni 风格的 inline title
-- inline title 的 uppercase 与加粗处理
+- inline title 的 uppercase 与常规字重处理
 
 它当前**不是**靠正文描边建立气质。
 
@@ -422,7 +424,7 @@ That also means something important about the current implementation:
 **Apprentice and Feuilleton explicitly ship this `@font-face` + `unicode-range` layer.**
 Codex still relies on a normal font stack.
 
-In Feuilleton, this is used to keep Latin text on `Georgia` while routing CJK body text to `HYCuFangSongJ`.
+In Feuilleton, this is used to keep Latin text on `EB Garamond` while routing CJK body text to `HYCuFangSongJ`.
 
 这意味着：
 
@@ -434,7 +436,7 @@ In Feuilleton, this is used to keep Latin text on `Georgia` while routing CJK bo
 **Apprentice 与 Feuilleton 都明确交付了这层 `@font-face` + `unicode-range` 机制。**
 Codex 目前仍然依赖普通 font stack。
 
-在 Feuilleton 中，这层机制用来让西文继续使用 `Georgia`，同时把中文正文路由到 `HYCuFangSongJ`。
+在 Feuilleton 中，这层机制用来让西文继续使用 `EB Garamond`，同时把中文正文路由到 `HYCuFangSongJ`。
 
 ---
 

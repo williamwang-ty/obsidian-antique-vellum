@@ -18,9 +18,9 @@
 
 /* ---- Typography Metrics & Global Font Variables ---- */
 body {
-    --font-text-theme: "Georgia", "HYCuFangSongJCJK", "Noto Serif SC", "Songti SC", "Source Han Serif SC", serif !important;
-    --font-text: "Georgia", "HYCuFangSongJCJK", "Noto Serif SC", "Songti SC", "Source Han Serif SC", serif !important;
-    --font-editor: "Georgia", "HYCuFangSongJCJK", "Noto Serif SC", "Songti SC", "Source Han Serif SC", serif !important;
+    --font-text-theme: "EB Garamond", "Adobe Garamond Pro", "Garamond Premier Pro", "Baskerville", "Iowan Old Style", "Palatino", "Palatino Linotype", "HYCuFangSongJCJK", "Noto Serif SC", "Songti SC", "Source Han Serif SC", serif !important;
+    --font-text: "EB Garamond", "Adobe Garamond Pro", "Garamond Premier Pro", "Baskerville", "Iowan Old Style", "Palatino", "Palatino Linotype", "HYCuFangSongJCJK", "Noto Serif SC", "Songti SC", "Source Han Serif SC", serif !important;
+    --font-editor: "EB Garamond", "Adobe Garamond Pro", "Garamond Premier Pro", "Baskerville", "Iowan Old Style", "Palatino", "Palatino Linotype", "HYCuFangSongJCJK", "Noto Serif SC", "Songti SC", "Source Han Serif SC", serif !important;
 
     --line-height-normal: 1.68;
     --editor-line-height: 1.68;
@@ -30,6 +30,8 @@ body {
     --av-article-panel-shadow: 0 6px 16px rgba(51, 45, 41, 0.035);
     --av-article-panel-radius: 10px;
     --av-code-panel-bg: rgba(51, 45, 41, 0.07);
+    --av-inline-code-bg: rgba(51, 45, 41, 0.028);
+    --av-inline-code-border: rgba(51, 45, 41, 0.04);
     --av-text-divider: rgba(51, 45, 41, 0.15);
     --av-text-divider-soft: transparent;
     --av-table-line: rgba(51, 45, 41, 0.17);
@@ -86,24 +88,67 @@ pre {
     -webkit-text-stroke: 0px !important;
 }
 
-/* Enforce monospace font for all code blocks and tokens to prevent them from inheriting the main serif typography. */
+/* Preserve the sharp FangSong skeleton by prohibiting faux-bold heading synthesis. */
+.markdown-rendered h1,
+.markdown-rendered h2,
+.markdown-rendered h3,
+.markdown-rendered h4,
+.markdown-rendered h5,
+.markdown-rendered h6,
+.HyperMD-header,
+.cm-header,
+.inline-title {
+    font-weight: 400 !important;
+    font-synthesis-weight: none !important;
+}
+
+/* Code typography: sharper editorial monospace for Latin, humanist CJK for annotations. */
 .HyperMD-codeblock,
 .HyperMD-codeblock *,
 .markdown-rendered code,
 .markdown-rendered code *,
 .markdown-rendered pre,
-.markdown-rendered pre * {
-    font-family: "IBM Plex Mono", var(--font-monospace), monospace !important;
+.markdown-rendered pre *,
+.cm-inline-code {
+    font-family: "Consolas", "Input Mono", "Berkeley Mono", "Menlo", "Kaiti SC", "STKaiti", "Kaiti TC", "HYCuFangSongJCJK", monospace !important;
+    letter-spacing: 0 !important;
+    word-spacing: 0 !important;
+    font-weight: 400 !important;
 }
 
-/* Keep code blocks visually deeper than the article panel without changing Feuilleton-specific code metrics. */
+/* Tighten code leading so logic reads as a compact insert rather than inheriting body-text looseness. */
+.markdown-source-view.mod-cm6 .HyperMD-codeblock,
+.markdown-rendered pre,
+.markdown-rendered pre code {
+    line-height: 1.32 !important;
+    font-size: 0.85em !important;
+}
+
+/* Keep code blocks visually deeper than the article panel while preserving a manuscript-insert feel. */
 .markdown-source-view.mod-cm6 .HyperMD-codeblock,
 .markdown-rendered pre {
     background: var(--av-code-panel-bg) !important;
 }
 
+.markdown-rendered pre {
+    padding: 0.82em 1em !important;
+}
+
 .markdown-rendered pre code {
     background: transparent !important;
+    padding: 0 !important;
+}
+
+/* Inline code should read like a marginal note, not a UI chip. */
+.markdown-rendered :not(pre)>code,
+.cm-inline-code {
+    background: var(--av-inline-code-bg) !important;
+    border: 1px solid var(--av-inline-code-border) !important;
+    border-radius: 2px !important;
+    box-shadow: none !important;
+    font-size: 0.88em !important;
+    line-height: 1 !important;
+    padding: 0.01em 0.18em !important;
 }
 
 /* Restore article text dividers without affecting table styling */
@@ -162,9 +207,11 @@ body .workspace-leaf .markdown-rendered .inline-title,
 body .workspace-leaf .markdown-rendered .inline-title *,
 body .workspace-leaf .markdown-source-view .inline-title,
 .inline-title {
-    font-family: "Didot", "Bodoni MT", ui-serif, serif !important;
+    font-family: "Didot", "Bodoni MT", "HYCuFangSongJCJK", ui-serif, serif !important;
     text-transform: uppercase !important;
-    font-weight: bold !important;
+    line-height: 1.25 !important;
+    font-weight: 400 !important;
+    font-synthesis-weight: none !important;
 }
 
 /* Make Inline Title distinctly larger than H1 to emphasize the Didot magazine feel.

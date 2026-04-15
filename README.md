@@ -69,7 +69,7 @@
 | 字体 | 当前用途 | 下载地址 |
 |---|---|---|
 | `Operator Mono` | Apprentice 首选代码字体（`Operator Mono Book` / Book Italic） | 请根据本地授权与安装情况确认 |
-| **IBM Plex Mono** | Codex / Feuilleton 代码字体 | [Google Fonts](https://fonts.google.com/specimen/IBM+Plex+Mono) |
+| `Consolas`, `Input Mono`, `Berkeley Mono`, `Menlo` | Feuilleton 代码字体（更冷静、更稳、更具编辑部感的等宽路线） | `Consolas` 作为首选；`Input Mono` / `Berkeley Mono` 需本地安装；`Menlo` 作为后备 |
 | `Crimson Pro`, `Crimson Text` | Apprentice 主西文字体 | [Google Fonts](https://fonts.google.com/specimen/Crimson+Pro) |
 | `QiushuiShotai` | Apprentice 主 CJK 字体来源 | 详见字体作者发布渠道 |
 | `Hiragino Sans GB` | Apprentice 文章标题字体 | 请根据本地授权与安装情况确认 |
@@ -85,7 +85,7 @@
 | `STKaiti`, `Kaiti SC`, `KaiTi` | Apprentice CJK 后备字体 | 取决于系统环境 |
 | `Hiragino Sans GB` | Apprentice 文章标题字体族 | 建议本地确认 |
 | `Charter`, `Bitstream Charter` | Codex 西文正文 | 取决于系统环境，建议本地确认 |
-| `Georgia` | Feuilleton 西文正文 | macOS 原生内置 |
+| `EB Garamond` | Feuilleton 西文正文 | 建议安装（更修长、更古典的杂志质感） |
 | `Songti SC` | Feuilleton 中文后备字体 | macOS 原生内置 |
 | `Didot`, `Bodoni MT` | Feuilleton inline title | macOS 原生内置 |
 
@@ -185,7 +185,7 @@ For **Option 3: Feuilleton**, install `HYCuFangSongJ` as a **system font** if yo
 | Font | Current use | Download |
 |---|---|---|
 | `Operator Mono` | Apprentice preferred code font (`Operator Mono Book` / Book Italic) | Verify local licensing / installation |
-| **IBM Plex Mono** | Codex / Feuilleton code font | [Google Fonts](https://fonts.google.com/specimen/IBM+Plex+Mono) |
+| `Consolas`, `Input Mono`, `Berkeley Mono`, `Menlo` | Feuilleton code font (cooler, steadier editorial monospace route) | `Consolas` is now preferred; install `Input Mono` / `Berkeley Mono` locally; `Menlo` acts as fallback |
 | `Crimson Pro`, `Crimson Text` | Apprentice primary Latin text | [Google Fonts](https://fonts.google.com/specimen/Crimson+Pro) |
 | `QiushuiShotai` | Apprentice primary CJK source | Check the font author's release channel |
 | `Hiragino Sans GB` | Apprentice inline-title font | Verify local licensing / installation |
@@ -201,7 +201,7 @@ For **Option 3: Feuilleton**, install `HYCuFangSongJ` as a **system font** if yo
 | `STKaiti`, `Kaiti SC`, `KaiTi` | Apprentice CJK fallback | Depends on system environment |
 | `Hiragino Sans GB` | Apprentice inline-title family | Verify local installation |
 | `Charter`, `Bitstream Charter` | Codex Latin text | Depends on system environment; verify locally |
-| `Georgia` | Feuilleton Latin text | Built into macOS |
+| `EB Garamond` | Feuilleton Latin text | Recommended install (more slender, classical magazine tone) |
 | `Songti SC` | Feuilleton CJK fallback | Built into macOS |
 | `Didot`, `Bodoni MT` | Feuilleton inline title | Built into macOS |
 
